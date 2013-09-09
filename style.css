@@ -12,6 +12,7 @@
 	position:relative;
 	height:16%;
 	border:1px solid green;
+	margin-bottom: 1%;
 }
 
 #menu
@@ -19,6 +20,7 @@
 	position:relative;
 	height:10%;
 	border:1px solid blue;
+	margin-bottom: 1%;
 }
 
 #content
@@ -26,4 +28,11 @@
 	position:relative;
 	height:70%;
 	border:1px solid red;
+}
+
+#footer
+{
+	position:relative;
+	height:2%;
+	border:1px solid black;
 }
