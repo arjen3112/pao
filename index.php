@@ -4,6 +4,8 @@
     </head>
     <body>
         <div id="container">
+        	<div id="header"></div>
+        	<div id="menu"></div>
         	<div id="content">
         		
         	</div>

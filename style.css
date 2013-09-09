@@ -1,0 +1,29 @@
+#container
+{
+	position:absolute;
+	width:70%;
+	height:90%;
+	top:5%;
+	left:15%;
+}
+
+#header
+{
+	position:relative;
+	height:16%;
+	border:1px solid green;
+}
+
+#menu
+{
+	position:relative;
+	height:10%;
+	border:1px solid blue;
+}
+
+#content
+{
+	position:relative;
+	height:70%;
+	border:1px solid red;
+}
