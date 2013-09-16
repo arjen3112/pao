@@ -8,7 +8,7 @@
         <div id="container">
         	<div id="header"><a href="?menuoptie=homepage"><img id="logo" src="images/logo.png"></a><img id="quote" src="images/Quote.png"></div>
         	<div id="menu">
-        	   <a href="?menuoptie=homepage"><div id="menuhomepage" class="menugeselecteert" onclick="menu(this)">Homepage</div></a>
+        	   <a href="?menuoptie=homepage"><div id="menuhomepage" class="" onclick="menu(this)">Homepage</div></a>
         	   <a href="?menuoptie=informatie"><div id="menuinformatie" class="" onclick="menu(this)">Informatie</div></a>
         	   <a href="?menuoptie=webshop"><div id="menuwebshop" class="" onclick="menu(this)">Webshop</div></a>
         	   <a href="?menuoptie=inloggen"><div id="menuinloggen" class="" onclick="menu(this)">Inloggen</div></a>

@@ -10,6 +10,12 @@
 	margin-top:1%;
 }
 
+#menuhomepage:hover,#menuinformatie:hover,#menuwebshop:hover,#menuinloggen:hover
+{
+	height:108.8%;
+	margin-top:9px;
+}
+
 #menuhomepage
 {
 	border-radius:15px 0px 0px 15px;
@@ -18,11 +24,4 @@
 #menuinloggen
 {
 	border-radius:0px 15px 15px 0px;
-}
-
-.menugeselecteert
-{
-	z-index:2;
-	width:26.8%;
-	height:102.8%;
 }
