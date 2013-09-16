@@ -1,6 +1,4 @@
 function menu(menuoptie)
 {
-	console.log("ngr");
-	
-	
+	window.alert("ngr");
 }
