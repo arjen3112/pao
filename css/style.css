@@ -9,11 +9,16 @@
 	min-height:500px;
 }
 
+body
+{
+	background-color:A61000;
+}
+
 #header
 {
 	position:relative;
 	height:16%;
-	border:1px solid green;
+	border:1px solid white;
 }
 
 #logo
@@ -42,14 +47,14 @@
 {
 	position:relative;
 	height:70%;
-	border:1px solid red;
+	border:1px solid white;
 }
 
 #footer
 {
 	position:relative;
 	height:2%;
-	border:1px solid black;
+	border:1px solid white;
 }
 
 a
