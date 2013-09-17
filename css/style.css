@@ -11,14 +11,14 @@
 
 body
 {
-	background-color:A61000;
+	background-color:#FFFFFF;
 }
 
 #header
 {
 	position:relative;
 	height:16%;
-	border:1px solid white;
+	border:solid 1px #0433a0;
 }
 
 #logo
@@ -47,14 +47,14 @@ body
 {
 	position:relative;
 	height:70%;
-	border:1px solid white;
+	border:solid 1px #0433a0;
 }
 
 #footer
 {
 	position:relative;
 	height:2%;
-	border:1px solid white;
+	border:solid 1px #0433a0;
 }
 
 a
