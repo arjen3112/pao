@@ -9,6 +9,11 @@
 	min-height:500px;
 }
 
+body
+{
+	background-color:#FFFFFF;
+}
+
 #header
 {
 	position:relative;
@@ -50,7 +55,6 @@
 	position:relative;
 	height:2%;
 	border:solid 1px #0433a0;
-	font-size:10px;
 }
 
 a
