@@ -1,3 +1,7 @@
+<?php
+    include('functions/bootstrap.php');
+    bootstrap('functions');
+?>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -13,7 +17,11 @@
         	   <a href="?menuoptie=webshop"><div id="menuwebshop" class="" onclick="menu(this)">Webshop</div></a>
         	   <a href="?menuoptie=inloggen"><div id="menuinloggen" class="" onclick="menu(this)">Inloggen</div></a>
         	</div>
-        	<div id="content"></div>
+        	<div id="content">
+        	    <?php
+        	    echo GetContent();
+        	    ?>
+        	</div>
         	<div id="footer"></div>	
         </div>
     </body>
