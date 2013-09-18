@@ -14,7 +14,7 @@
         	   <a href="?menuoptie=inloggen"><div id="menuinloggen" class="" onclick="menu(this)">Inloggen</div></a>
         	</div>
         	<div id="content"></div>
-        	<div id="footer"></div>	
+        	<div id="footer">&#174 Arjen Bovee & Reyno te Koppele</div>	
         </div>
     </body>
 </html>
