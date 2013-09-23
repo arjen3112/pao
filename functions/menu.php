@@ -43,6 +43,12 @@ function menu(){
               ';
                 break;
         }
+    }else{
+       $menu='<a href="?menuoptie=homepage"><div id="menuhomepage" class="menuGeselecteerd">Homepage</div></a>
+                       <a href="?menuoptie=informatie"><div id="menuinformatie" class="">Informatie</div></a>
+                       <a href="?menuoptie=webshop"><div id="menuwebshop" class="">Webshop</div></a>
+                       <a href="?menuoptie=inloggen"><div id="menuinloggen" class="">Inloggen</div></a>
+              '; 
     }
     return $menu;
     
