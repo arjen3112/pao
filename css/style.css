@@ -62,3 +62,10 @@ a
 	text-decoration:none;
 	color:black;
 }
+
+#tableLogin
+{
+	position:relative;
+	margin:auto;
+	margin-top:10%;
+}

@@ -55,7 +55,7 @@ function getlogon()
 {
     $output = '
     <form method="post" action="?menuoptie=inloggen">
-        <table>
+        <table id="tableLogin">
             <tr>
                 <td>Gebruikersnaam: </td>
                 <td><input type="text" name="user"></td>
@@ -65,7 +65,7 @@ function getlogon()
                 <td><input type="password" name="pass"></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" value="login"></td>
+                <td colspan="2"><input type="submit" value="login" class="button"></td>
             </tr>
         </table>
         </form>';
@@ -76,11 +76,13 @@ function getlogoff()
 {
     
     return
-     'welkom '.$_SESSION['username'].
      '
-     <form method="post" action="?menuoptie=inloggen">
-     <input type="submit" name="logoff" value="logoff">
-     </form>';
+     <table id="tableLogin">
+     <tr><td>Welkom '.$_SESSION['username'].'</td></tr>
+     <tr><td colspan="2"><form method="post" action="?menuoptie=inloggen">
+     <input type="submit" name="logoff" class="button" value="logoff">
+     </form></td></tr>
+     </table>';
     
 }
 
