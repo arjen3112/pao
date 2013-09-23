@@ -57,11 +57,11 @@ function getlogon()
     <form method="post" action="?menuoptie=inloggen">
         <table>
             <tr>
-                <td>gebruikersnaam</td>
+                <td>Gebruikersnaam: </td>
                 <td><input type="text" name="user"></td>
             </tr>
             <tr>
-                <td>wachtwoord</td>
+                <td>Wachtwoord: </td>
                 <td><input type="password" name="pass"></td>
             </tr>
             <tr>
