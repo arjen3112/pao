@@ -102,7 +102,27 @@ function getlogoff()
 
 function getregistratie()
 {
-    $output = "anusbleker";
+    $output = '
+    <form>
+    	<table id="tableLogin" method="post">
+    		<tr>
+    			<td>Gebruikersnaam: </td>
+    			<td><input type="text" name="username"></td>
+    		</tr>
+    		<tr>
+    			<td>Wachwoord: </td>
+    			<td><input type="password" name="password"></td>
+    		</tr>
+    		<tr>
+    			<td>Emailadres: </td>
+    			<td><input type="text" name="email"></td>
+    		</tr>
+    		<tr><td colspan="2">
+    		<input type="submit" name="registreer" class="button" value="registreer">
+    		</td></tr>
+    	</table>
+    </form>
+    ';
     return $output;
 }
 
