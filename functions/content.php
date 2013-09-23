@@ -52,7 +52,7 @@ function GetWebshop()
 
 function GetInloggen()
 {
-    $content = "inloggen";
+    $content = logon();
     return $content;
     
 }
