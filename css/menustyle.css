@@ -10,14 +10,6 @@
 	border:solid 1px #0433a0;
 }
 
-#menuhomepage:hover,#menuinformatie:hover,#menuwebshop:hover,#menuinloggen:hover
-{
-	height:100%;
-	margin-top:9px;
-	font-size:30;
-	border:1px solid #2355ca;
-}
-
 #menuhomepage
 {
 	border-radius:15px 0px 0px 15px;
