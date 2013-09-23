@@ -103,8 +103,8 @@ function getlogoff()
 function getregistratie()
 {
     $output = '
-    <form>
-    	<table id="tableLogin" method="post">
+    <form method="post" action="?menuoptie=inloggen">
+    	<table id="tableLogin">
     		<tr>
     			<td>Gebruikersnaam: </td>
     			<td><input type="text" name="username"></td>
@@ -118,7 +118,7 @@ function getregistratie()
     			<td><input type="text" name="email"></td>
     		</tr>
     		<tr><td colspan="2">
-    		<input type="submit" name="registreer" class="button" value="registreer">
+    		<input type="submit" name="registreren" class="button" value="registreer">
     		</td></tr>
     	</table>
     </form>
