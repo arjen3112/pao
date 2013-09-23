@@ -62,3 +62,9 @@
 	position:relative;
 	top:1px;
 }
+
+.btnNoStyle
+{
+	border:none;
+	background-color:#FFFFFF;
+}
