@@ -54,8 +54,8 @@ function logon()
 function getlogon()
 {
     $output = '
-    <form method="post" action="?menuoptie=inloggen">
         <table id="tableLogin">
+        <form method="post" action="?menuoptie=inloggen">
             <tr>
                 <td>Gebruikersnaam: </td>
                 <td><input type="text" name="user"></td>
@@ -67,8 +67,15 @@ function getlogon()
             <tr>
                 <td colspan="2"><input type="submit" value="login" class="button"></td>
             </tr>
+            
+        </form>
+        <form method="post" action="?menuoptie=inloggen">
+            <tr>
+                <td><input type="submit" value="registreren" class="btnNoStyle"></td>
+            </tr>
+        </form>
         </table>
-        </form>';
+        ';
         return $output;
     
 }
