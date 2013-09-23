@@ -1,7 +1,7 @@
 <?php
     include('functions/bootstrap.php');
     bootstrap('functions');
-    
+    connectdb();
 ?>
 <html>
     <head>
