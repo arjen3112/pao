@@ -78,7 +78,7 @@ function getlogon()
         </form>
         <form method="post" action="?menuoptie=inloggen">
             <tr>
-                <td><input type="submit" value="registreren" name="registreren" class="btnNoStyle"></td>
+                <td><input type="submit" value="registreren?" name="registreren" class="btnNoStyle"></td>
             </tr>
         </form>
         </table>
