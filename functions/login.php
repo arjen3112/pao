@@ -126,4 +126,3 @@ function getregistratie()
     return $output;
 }
 
-
