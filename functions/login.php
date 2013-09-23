@@ -78,7 +78,7 @@ function getlogoff()
     return
      'welkom '.$_SESSION['username'].
      '
-     <form method="post" action="?menuoptie=homepage">
+     <form method="post" action="?menuoptie=inloggen">
      <input type="submit" name="logoff" value="logoff">
      </form>';
     
