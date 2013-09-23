@@ -37,8 +37,15 @@ function logon()
     }
     
         if(!isset($_SESSION['profiel']))
-        {
-            $output = getlogon();
+        { 
+            if(isset($_POST['registreren']))
+            {
+                $output = getregistratie();    
+            }
+            else
+            {
+                $output = getlogon();  
+            }
         }
         elseif($_SESSION['profiel'] >="1")
         {
@@ -71,7 +78,7 @@ function getlogon()
         </form>
         <form method="post" action="?menuoptie=inloggen">
             <tr>
-                <td><input type="submit" value="registreren" class="btnNoStyle"></td>
+                <td><input type="submit" value="registreren" name="registreren" class="btnNoStyle"></td>
             </tr>
         </form>
         </table>
@@ -91,6 +98,12 @@ function getlogoff()
      </form></td></tr>
      </table>';
     
+}
+
+function getregistratie()
+{
+    $output = "anusbleker";
+    return $output;
 }
 
 
