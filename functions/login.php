@@ -65,11 +65,11 @@ function getlogon()
         <form method="post" action="?menuoptie=inloggen">
             <tr>
                 <td>Gebruikersnaam: </td>
-                <td><input type="text" name="user"></td>
+                <td><input type="text" name="user" placeholder="Typ hier je naam"></td>
             </tr>
             <tr>
                 <td>Wachtwoord: </td>
-                <td><input type="password" name="pass"></td>
+                <td><input type="password" name="pass" placeholder="Typ hier je wachtwoord"></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="login" class="button"></td>
@@ -107,15 +107,50 @@ function getregistratie()
     	<table id="tableLogin">
     		<tr>
     			<td>Gebruikersnaam: </td>
-    			<td><input type="text" name="username"></td>
+    			<td><input name="name" type="text" placeholder="Typ hier je naam"
+			';
+			if(isset($_POST['name']))
+			{
+				$output .= " value=\"". $_POST['name'] ."\" ";
+				$name = $_POST['name'];
+				$pattern = '/^.*[a-zA-Z]$/';
+				if(!preg_match($pattern,$name))
+				{
+					$output.= "style=\"border:2px solid red;\" ";
+				}
+			}
+			$output.='/></td>
     		</tr>
     		<tr>
     			<td>Wachwoord: </td>
-    			<td><input type="password" name="password"></td>
+    			<td><input name="password" type="password" placeholder="Typ hier je wachtwoord"
+			';
+			if(isset($_POST['password']))
+			{
+				$output .= " value=\"". $_POST['password'] ."\"";
+				$password = $_POST['password'];
+				$pattern = '/^.*[a-zA-Z][0-9]$/';
+				if(!preg_match($pattern,$password))
+				{
+					$output.= "style=\"border:2px solid red;\" ";
+				}
+			}
+			$output.='/></td>
     		</tr>
     		<tr>
     			<td>Emailadres: </td>
-    			<td><input type="text" name="email"></td>
+    			<td><input name="email" type="text" placeholder="bakker@example.com"
+			';
+			if(isset($_POST['email']))
+			{
+				$output .= " value=\"". $_POST['email'] ."\"";
+				$email = $_POST['email'];
+				if(!filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL))
+				{
+					$output.= "style=\"border:2px solid red;\" ";
+				}
+			}
+			$output.='/></td>
     		</tr>
     		<tr><td colspan="2">
     		<input type="submit" name="registreren" class="button" value="registreer">
