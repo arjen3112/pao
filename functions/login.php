@@ -26,10 +26,40 @@ function logon()
                   
         $resultaat = mysql_query($query);
         $nummer_rows=mysql_num_rows($resultaat);
-        $row = mysql_fetch_array($resultaat);
+        $row = mysql_fetch_array($resultaat);      
         
-        
-        if($nummer_rows==1)
+		if($nummer_rows == 0)
+		{
+			$output = '
+        <table id="tableLogin">
+        <form method="post" action="?menuoptie=inloggen">
+        	<tr>
+        	<td colspan="2">Wachtwoord en/of gebruikersnaam is onjuist ingevoerd</td>
+        	</tr>
+            <tr>
+                <td>Gebruikersnaam: </td>
+                <td><input type="text" name="user" placeholder="Typ hier je naam" value='.$_POST['user'].'></td>
+            </tr>
+            <tr>
+                <td>Wachtwoord: </td>
+                <td><input type="password" name="pass" placeholder="Typ hier je wachtwoord" value='.$_POST['pass'].'></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="login" class="button"></td>
+            </tr>
+            
+        </form>
+        <form method="post" action="?menuoptie=inloggen">
+            <tr>
+                <td><input type="submit" value="registreren?" name="registreren" class="btnNoStyle"></td>
+            </tr>
+        </form>
+        </table>
+        ';
+        return $output;
+		}
+		
+		elseif($nummer_rows==1)
         {
             $_SESSION['profiel']=$row['profiel'];
             $_SESSION['username']=$row['account'];
@@ -160,4 +190,3 @@ function getregistratie()
     ';
     return $output;
 }
-
