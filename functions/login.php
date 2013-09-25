@@ -168,6 +168,22 @@ function getregistratie()
 			$output.='/></td>
     		</tr>
     		<tr>
+    			<td>Wachwoord herhalen: </td>
+    			<td><input name="password2" type="password" placeholder="Typ hier je wachtwoord"
+			';
+			if(isset($_POST['password2']))
+			{
+				$output .= " value=\"". $_POST['password2'] ."\"";
+				$password2 = $_POST['password2'];
+				$pattern = $_POST['password'];
+				if($pattern !== $password2)
+				{
+					$output.= "style=\"border:2px solid red;\" ";
+				}
+			}
+			$output.='/></td>
+    		</tr>
+    		<tr>
     			<td>Emailadres: </td>
     			<td><input name="email" type="text" placeholder="bakker@example.com"
 			';
