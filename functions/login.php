@@ -34,7 +34,7 @@ function logon()
         <table id="tableLogin">
         <form method="post" action="?menuoptie=inloggen">
         	<tr>
-        	<td colspan="2">Wachtwoord en/of gebruikersnaam is onjuist ingevoerd</td>
+        	<td colspan="2" class="fout">Wachtwoord en/of gebruikersnaam is onjuist ingevoerd</td>
         	</tr>
             <tr>
                 <td>Gebruikersnaam: </td>
