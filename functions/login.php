@@ -207,7 +207,7 @@ function getregistratie()
     		</td></tr>
     	</table>
     </form>';
-	if(isset($_POST['submitregistreren']) && $check=0)
+	if(isset($_POST['submitregistreren']) && empty($check))
 		{
 			$voor = $_POST['name'];
 			$wacht = $_POST['password'];
