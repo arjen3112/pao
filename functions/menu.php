@@ -44,11 +44,11 @@ function menu(){
                             $menu.='<ul>
                             			<li id="menuinloggen">
                             				<a href="?menuoptie=inloggen"><div >Account</div></a>
-                            				<ul>
-                            					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li>Bestellingen</li></a>
+      	                      				<ul>
+                            					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
                             					<form method="post" action="?menuoptie=inloggen">
-   												<li><input type="submit" name="logoff" class="btnNoStyle" value="uitloggen">
+   												<li><input type="submit" name="logoff" class="btnMenu" value="Uitloggen">
    	  											</form></li>
                             				</ul>
                             			</li>
