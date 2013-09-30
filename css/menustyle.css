@@ -83,27 +83,27 @@ ul
 
 li
 {
-	list-style:none;
-	background-color:darkred;
-	float:left;
-	width:140px;
-	height:30px;
-	line-height:30px;
+	position:relative;
+	width:24.8%;
+	height:91.2%;
 	text-align:center;
+	margin-bottom:1%;
+	margin-top:1%;
+	border:solid 1px green;
+	border-radius:0px 15px 15px 0px;
 }	
 
-#content div ul ul
+ul ul
 {
 	display:none
 }
 
-#content div ul li:hover
+ul li:hover
 {
-	background-color:red;
-	box-shadow: 1px 1px 3px 3px darkred inset;
+	box-shadow: 1px 1px 3px 3px grey inset;
 }
 
-#content div ul li:hover ul
+li:hover ul
 {
 	display:block;
 }

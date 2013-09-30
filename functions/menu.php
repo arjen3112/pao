@@ -43,7 +43,7 @@ function menu(){
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]=="1"){
                             $menu.='<ul>
                             			<li>
-                            				<a href="?menuoptie=inloggen"><div id="menuinloggen" class="menuGeselecteerd">Account</div></a>
+                            				<a href="?menuoptie=inloggen"><div id="menuinloggen" class="">Account</div></a>
                             				<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li>Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
