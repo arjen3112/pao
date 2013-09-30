@@ -131,6 +131,7 @@ function getlogoff()
 
 function getregistratie()
 {
+	$check = 0;
     $output = '
     <form method="post" action="?menuoptie=inloggen">
     	<table id="tableLogin">
@@ -146,6 +147,7 @@ function getregistratie()
 				if(!preg_match($pattern,$name))
 				{
 					$output.= "style=\"border:2px solid red;\" ";
+					$check=1;
 				}
 			}
 			$output.='/></td>
@@ -162,6 +164,7 @@ function getregistratie()
 				if(!preg_match($pattern,$password))
 				{
 					$output.= "style=\"border:2px solid red;\" ";
+					$check=1;
 				}
 			}
 			$output.='/></td>
@@ -178,6 +181,7 @@ function getregistratie()
 				if($pattern !== $password2)
 				{
 					$output.= "style=\"border:2px solid red;\" ";
+					$check=1;
 				}
 			}
 			$output.='/></td>
@@ -193,6 +197,7 @@ function getregistratie()
 				if(!filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL))
 				{
 					$output.= "style=\"border:2px solid red;\" ";
+					$check=1;
 				}
 			}
 			$output.='/></td>
@@ -201,7 +206,18 @@ function getregistratie()
     		<input type="submit" name="registreren" class="button" value="registreer">
     		</td></tr>
     	</table>
-    </form>
-    ';
+    </form>';
+	if(isset($_POST['registreren']))
+		{
+			$voor = $_POST['name'];
+			$wacht = $_POST['password'];
+			$email = $_POST['email'];
+			
+			$q = "INSERT INTO accounts
+					(account, password, email, profiel)
+					VALUES
+					('$voor','$wacht','$email','2')";
+			mysql_query($q);
+		}
     return $output;
 }
