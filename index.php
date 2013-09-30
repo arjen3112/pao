@@ -2,6 +2,7 @@
     include('functions/bootstrap.php');
     bootstrap('functions');
     connectdb();
+    checklogin();
 ?>
 <html>
     <head>

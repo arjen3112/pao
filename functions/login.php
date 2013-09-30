@@ -16,7 +16,6 @@ function logon()
         $params["secure"], $params["httponly"]
             );
          }
-        session_destroy();
     }
     if(isset($_POST['user'])  && isset($_POST['pass']))
     {
@@ -102,7 +101,7 @@ function getlogon()
                 <td><input type="password" name="pass" placeholder="Typ hier je wachtwoord"></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" value="login" class="button"></td>
+                <td colspan="2"><input type="submit" value="login" name="login" class="button"></td>
             </tr>
             
         </form>
