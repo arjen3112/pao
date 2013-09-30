@@ -67,7 +67,7 @@ function logon()
     
         if(!isset($_SESSION['profiel']))
         { 
-            if(isset($_POST['registreren']))
+            if(isset($_POST['registreren'])||isset($_POST['submitregistreren']))
             {
                 $output = getregistratie();    
             }
@@ -203,11 +203,11 @@ function getregistratie()
 			$output.='/></td>
     		</tr>
     		<tr><td colspan="2">
-    		<input type="submit" name="registreren" class="button" value="registreer">
+    		<input type="submit" name="submitregistreren" class="button" value="registreer">
     		</td></tr>
     	</table>
     </form>';
-	if(isset($_POST['registreren']))
+	if(isset($_POST['submitregistreren']) && $check=0)
 		{
 			$voor = $_POST['name'];
 			$wacht = $_POST['password'];
