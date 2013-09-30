@@ -75,3 +75,35 @@
 	font-size:16px;
 	color:red;
 }
+
+ul
+{
+	list-style:none;
+}
+
+li
+{
+	list-style:none;
+	background-color:darkred;
+	float:left;
+	width:140px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+}	
+
+#content div ul ul
+{
+	display:none
+}
+
+#content div ul li:hover
+{
+	background-color:red;
+	box-shadow: 1px 1px 3px 3px darkred inset;
+}
+
+#content div ul li:hover ul
+{
+	display:block;
+}

@@ -41,7 +41,18 @@ function menu(){
                        <a href="?menuoptie=informatie"><div id="menuinformatie" class="">Informatie</div></a>
                        <a href="?menuoptie=webshop"><div id="menuwebshop" class="">Webshop</div></a>';
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]=="1"){
-                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="menuGeselecteerd">Account</div></a>';
+                            $menu.='<ul>
+                            			<li>
+                            				<a href="?menuoptie=inloggen"><div id="menuinloggen" class="menuGeselecteerd">Account</div></a>
+                            				<ul>
+                            					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li>Bestellingen</li></a>
+                            					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
+                            					<form method="post" action="?menuoptie=inloggen">
+   												<li><input type="submit" name="logoff" class="button" value="uitloggen">
+   	  											</form></li>
+                            				</ul>
+                            			</li>
+                            		</ul>';
                        }else{
                             $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="menuGeselecteerd">Inloggen</div></a>'; 
                        }
