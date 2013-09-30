@@ -101,9 +101,11 @@ ul ul
 ul li:hover
 {
 	box-shadow: 1px 1px 3px 3px grey inset;
+	
 }
 
 li:hover ul
 {
 	display:block;
+	
 }
