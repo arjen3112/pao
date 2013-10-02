@@ -225,6 +225,7 @@ function getregistratie()
     					VALUES
     					('$voor','$wacht','$email','2')";
     			mysql_query($q);
+                $output = '<div>Registratie succesvol</div>';
             }
 		}
     return $output;
