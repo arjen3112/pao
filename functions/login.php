@@ -207,17 +207,105 @@ function getregistratie()
     		</td></tr>
     	</table>
     </form>';
-	if(isset($_POST['submitregistreren']) && empty($check))
+	if(isset($_POST['submitregistreren']))
 		{
-			$voor = $_POST['name'];
-			$wacht = $_POST['password'];
-			$email = $_POST['email'];
-			
-			$q = "INSERT INTO accounts
-					(account, password, email, profiel)
-					VALUES
-					('$voor','$wacht','$email','2')";
-			mysql_query($q);
+		    $voor = $_POST['name'];
+            $wacht = $_POST['password'];
+            $email = $_POST['email'];
+            
+		    $query = mysql_query('SELECT * FROM `accounts` WHERE `account` ="'.$voor.'" OR `email` ="'.$email.'"');   
+            $nummer_rows=mysql_num_rows($query);
+            if(!empty($nummer_rows)){
+                $output = registratieBestaat();
+                $check=1;
+            }            
+			if(empty($check)){
+    			$q = "INSERT INTO accounts
+    					(account, password, email, profiel)
+    					VALUES
+    					('$voor','$wacht','$email','2')";
+    			mysql_query($q);
+            }
 		}
+    return $output;
+}
+
+function registratieBestaat(){
+    $output = '
+    <form method="post" action="?menuoptie=inloggen">
+        <table id="tableLogin">
+            <tr><td colspan="2" class="fout">Gebruikersnaam en/of email bestaat al</td></tr>
+            <tr>
+                <td>Gebruikersnaam: </td>
+                <td><input name="name" type="text" placeholder="Typ hier je naam"
+            ';
+            if(isset($_POST['name']))
+            {
+                $output .= " value=\"". $_POST['name'] ."\" ";
+                $name = $_POST['name'];
+                $pattern = '/^.*[a-zA-Z]$/';
+                if(!preg_match($pattern,$name))
+                {
+                    $output.= "style=\"border:2px solid red;\" ";
+                    $check=1;
+                }
+            }
+            $output.='/></td>
+            </tr>
+            <tr>
+                <td>Wachwoord: </td>
+                <td><input name="password" type="password" placeholder="Typ hier je wachtwoord"
+            ';
+            if(isset($_POST['password']))
+            {
+                $output .= " value=\"". $_POST['password'] ."\"";
+                $password = $_POST['password'];
+                $pattern = '/^.*[a-zA-Z][0-9]$/';
+                if(!preg_match($pattern,$password))
+                {
+                    $output.= "style=\"border:2px solid red;\" ";
+                    $check=1;
+                }
+            }
+            $output.='/></td>
+            </tr>
+            <tr>
+                <td>Wachwoord herhalen: </td>
+                <td><input name="password2" type="password" placeholder="Typ hier je wachtwoord"
+            ';
+            if(isset($_POST['password2']))
+            {
+                $output .= " value=\"". $_POST['password2'] ."\"";
+                $password2 = $_POST['password2'];
+                $pattern = $_POST['password'];
+                if($pattern !== $password2)
+                {
+                    $output.= "style=\"border:2px solid red;\" ";
+                    $check=1;
+                }
+            }
+            $output.='/></td>
+            </tr>
+            <tr>
+                <td>Emailadres: </td>
+                <td><input name="email" type="text" placeholder="bakker@example.com"
+            ';
+            if(isset($_POST['email']))
+            {
+                $output .= " value=\"". $_POST['email'] ."\"";
+                $email = $_POST['email'];
+                if(!filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL))
+                {
+                    $output.= "style=\"border:2px solid red;\" ";
+                    $check=1;
+                }
+            }
+            $output.='/></td>
+            </tr>
+            <tr><td colspan="2">
+            <input type="submit" name="submitregistreren" class="button" value="registreer">
+            </td></tr>
+        </table>
+    </form>';
     return $output;
 }
