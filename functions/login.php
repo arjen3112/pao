@@ -225,7 +225,29 @@ function getregistratie()
     					VALUES
     					('$voor','$wacht','$email','2')";
     			mysql_query($q);
-                $output = '<div>Registratie succesvol</div>';
+                $output = '
+			        <table id="tableLogin">
+			        <form method="post" action="?menuoptie=inloggen">
+			        	<tr><td colspan="2" class="goed">Registratie succesvol</td></tr>
+			            <tr>
+			                <td>Gebruikersnaam: </td>
+			                <td><input type="text" name="user" placeholder="Typ hier je naam"></td>
+			            </tr>
+			            <tr>
+			                <td>Wachtwoord: </td>
+			                <td><input type="password" name="pass" placeholder="Typ hier je wachtwoord"></td>
+			            </tr>
+			            <tr>
+			                <td colspan="2"><input type="submit" value="login" name="login" class="button"></td>
+			            </tr>
+			            
+			        </form>
+			        <form method="post" action="?menuoptie=inloggen">
+			            <tr>
+			                <td><input type="submit" value="registreren?" name="registreren" class="btnNoStyle"></td>
+			            </tr>
+			        </form>
+			        </table>';
             }
 		}
     return $output;
