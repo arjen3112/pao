@@ -21,7 +21,7 @@ function menu(){
                             			</li>
                             		</ul>';
                        }else{
-                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="menuGeselecteerd">Inloggen</div></a>'; 
+                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="">Inloggen</div></a>'; 
                        }
                 break;
             
@@ -43,7 +43,7 @@ function menu(){
                             			</li>
                             		</ul>';
                        }else{
-                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="menuGeselecteerd">Inloggen</div></a>'; 
+                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="">Inloggen</div></a>'; 
                        }
                 break;
                 
@@ -65,7 +65,7 @@ function menu(){
                             			</li>
                             		</ul>';
                        }else{
-                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="menuGeselecteerd">Inloggen</div></a>'; 
+                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="">Inloggen</div></a>'; 
                        }
                 break;
             
@@ -109,7 +109,7 @@ function menu(){
                             			</li>
                             		</ul>';
                        }else{
-                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="menuGeselecteerd">Inloggen</div></a>'; 
+                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="">Inloggen</div></a>'; 
                        }
                        
                 break;
@@ -132,7 +132,7 @@ function menu(){
                             			</li>
                             		</ul>';
                        }else{
-                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="menuGeselecteerd">Inloggen</div></a>'; 
+                            $menu.='<a href="?menuoptie=inloggen"><div id="menuinloggen" class="">Inloggen</div></a>'; 
                        }
     }
     return $menu;
