@@ -519,6 +519,7 @@ function getaccountgegevens()
                 <td>Telefoon: </td>
                 <td>'.$_SESSION['telefoon'].'</td>
             </tr>
+            <tr><td colspan="2"><input type="submit" class="button" value="Wijzig gegevens"></td></tr>
         </form>
         </table>
         ';
