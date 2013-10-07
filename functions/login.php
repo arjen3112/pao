@@ -19,7 +19,7 @@ function logon()
     }
     if(isset($_POST['user'])  && isset($_POST['pass']))
     {
-        $query = 'SELECT `profiel`,`account` FROM `accounts`
+        $query = 'SELECT * FROM `accounts`
                   WHERE `account` ="'.mysql_real_escape_string($_POST['user']).'" 
                   AND `password`  ="'.mysql_real_escape_string($_POST['pass']).'"';
                   
@@ -62,6 +62,12 @@ function logon()
         {
             $_SESSION['profiel']=$row['profiel'];
             $_SESSION['username']=$row['account'];
+			
+			$_SESSION['email']=$row['email'];
+			$_SESSION['adres']=$row['adres'];
+			$_SESSION['huisnummer']=$row['huisnummer'];
+			$_SESSION['postcode']=$row['postcode'];
+			$_SESSION['telefoon']=$row['telefoon'];
         }
     }
     
@@ -133,10 +139,6 @@ function getlogoff()
      <table id="tableLogin">
      <tr><td>Welkom '.$_SESSION['username'].'</td></tr>
      </table>';
-    
-}
-
-function getloginfout(){
     
 }
 
@@ -298,7 +300,7 @@ function getregistratie()
 			$postcode = $_POST['postcode'];
 			$telefoon = $_POST['telefoon'];
             
-		    $query = mysql_query('SELECT * FROM `accounts` WHERE `account` ="'.$voor.'" OR `email` ="'.$email.'"');   
+		    $query = mysql_query('SELECT * FROM `accounts` WHERE `account` ="'.$voor.'" OR `email` ="'.$email.'" OR `telefoon` ="'.$telefoon.'"');   
             $nummer_rows=mysql_num_rows($query);
             if(!empty($nummer_rows)){
                 $output = registratieBestaat();
@@ -495,7 +497,27 @@ function getaccountgegevens()
             </tr>
             <tr>
                 <td>Wachtwoord: </td>
-                <td>Staat hier</td>
+                <td>****</td>
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td>'.$_SESSION['email'].'</td>
+            </tr>
+            <tr>
+                <td>Adres: </td>
+                <td>'.$_SESSION['adres'].'</td>
+            </tr>
+            <tr>
+                <td>Huisnummer: </td>
+                <td>'.$_SESSION['huisnummer'].'</td>
+            </tr>
+            <tr>
+                <td>Postcode: </td>
+                <td>'.$_SESSION['postcode'].'</td>
+            </tr>
+            <tr>
+                <td>Telefoon: </td>
+                <td>'.$_SESSION['telefoon'].'</td>
             </tr>
         </form>
         </table>
