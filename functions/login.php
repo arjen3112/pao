@@ -76,7 +76,7 @@ AND `password`  ="' . mysql_real_escape_string($_POST['pass']) . '"';
     } elseif ($_SESSION['profiel'] >= "1") {
         if (isset($_GET['loginoptie']) && $_GET['loginoptie'] == "account") {
             if (isset($_POST['submitwijziging'])) {
-                $ouput = getwijziging();
+                $output = getwijziging();
             }else
             {
                 $output = getaccountgegevens();
@@ -547,6 +547,7 @@ function getwijziging() {
 <form method="post" action="?menuoptie=inloggen&loginoptie=account">
     <table id="tableLogin">
         <tr>
+        	<td>Gebruikersnaam: </td>
             <td>
                 '.$_SESSION["username"].'
             </td>
