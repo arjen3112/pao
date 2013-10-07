@@ -10,7 +10,7 @@ function menu(){
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
                             $menu.='<ul>
                             			<li id="menuinloggen">
-                            				<a href="?menuoptie=inloggen"><div >Account</div></a>
+                            				<div>Account</div>
       	                      				<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
@@ -32,7 +32,7 @@ function menu(){
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
                             $menu.='<ul>
                             			<li id="menuinloggen">
-                            				<a href="?menuoptie=inloggen"><div >Account</div></a>
+                            				<div>Account</div>
       	                      				<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
@@ -54,7 +54,7 @@ function menu(){
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
                             $menu.='<ul>
                             			<li id="menuinloggen">
-                            				<a href="?menuoptie=inloggen"><div >Account</div></a>
+                            				<div>Account</div>
       	                      				<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
@@ -76,7 +76,7 @@ function menu(){
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
                             $menu.='<ul>
                             			<li id="menuinloggen">
-                            				<a href="?menuoptie=inloggen"><div >Account</div></a>
+                            				<div>Account</div>
       	                      				<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
@@ -98,7 +98,7 @@ function menu(){
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
                             $menu.='<ul>
                             			<li id="menuinloggen">
-                            				<a href="?menuoptie=inloggen"><div >Account</div></a>
+                            				<div>Account</div>
       	                      				<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
@@ -121,7 +121,7 @@ function menu(){
                       if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
                             $menu.='<ul>
                             			<li id="menuinloggen">
-                            				<a href="?menuoptie=inloggen"><div >Account</div></a>
+                            				<div>Account</div>
       	                      				<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>

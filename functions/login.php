@@ -73,13 +73,23 @@ function logon()
             }
             else
             {
-                $output = getlogon();  
-            }
+                $output = getlogon();
+            }  
         }
         elseif($_SESSION['profiel'] >="1")
         {
-            
+            if(isset($_GET['loginoptie']) && $_GET['loginoptie'] == "account")
+            {
+                $output = getaccountgegevens();
+            }
+            elseif(isset($_GET['loginoptie']) && $_GET['loginoptie'] == "bestellingen")
+            {
+                $output = getbestellingen();
+            }
+            else
+            {
             $output = getlogoff();
+            }
         }
         
         return $output;
@@ -122,10 +132,11 @@ function getlogoff()
      '
      <table id="tableLogin">
      <tr><td>Welkom '.$_SESSION['username'].'</td></tr>
-     <tr><td colspan="2"><form method="post" action="?menuoptie=inloggen">
-     <input type="submit" name="logoff" class="button" value="logoff">
-     </form></td></tr>
      </table>';
+    
+}
+
+function getloginfout(){
     
 }
 
@@ -332,3 +343,15 @@ function registratieBestaat(){
     </form>';
     return $output;
 }
+
+function getaccountgegevens()
+{
+    $output= "hallo";
+    return $output;
+}
+
+function getbestellingen()
+{
+    $output= "hallo2";
+    return $output;
+} 

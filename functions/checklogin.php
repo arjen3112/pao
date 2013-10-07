@@ -23,7 +23,6 @@ function checklogin() {
         $resultaat = mysql_query($query);
         $nummer_rows = mysql_num_rows($resultaat);
         $row = mysql_fetch_array($resultaat);
-
         if ($nummer_rows == 1) {
             $_SESSION['profiel'] = $row['profiel'];
             $_SESSION['username'] = $row['account'];
