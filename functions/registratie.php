@@ -402,19 +402,21 @@ function getaccountgegevens() {
 
 function getwijziging() {
     $check = 0;
+    $output = '';
     $output = '
+    
 <form method="post" action="?menuoptie=inloggen&loginoptie=account">
     <table id="tableLogin">
         <tr>
             <td>Gebruikersnaam: </td>
             <td>
-                '.$_SESSION["username"].'
+                ' . $_SESSION["username"] . '
             </td>
         </tr>
         <tr>
             <td>Wachwoord: </td>
             <td>
-            <input name="password" type="password" value="'.$_SESSION["wachtwoord"].'"
+            <input name="password" type="password" value="' . $_SESSION["wachtwoord"] . '"
             ';
     if (isset($_POST['password'])) {
         $output .= " value=\"" . $_POST['password'] . "\"";
@@ -448,7 +450,7 @@ function getwijziging() {
         <tr>
             <td>Emailadres: </td>
             <td>
-            <input name="email" type="text" value="'.$_SESSION["email"].'"
+            <input name="email" type="text" value="' . $_SESSION["email"] . '"
             ';
     if (isset($_POST['email'])) {
         $output .= " value=\"" . $_POST['email'] . "\"";
@@ -464,7 +466,7 @@ function getwijziging() {
         <tr>
             <td>Adres: </td>
             <td>
-            <input name="adres" type="text" value="'.$_SESSION["adres"].'"
+            <input name="adres" type="text" value="' . $_SESSION["adres"] . '"
             ';
     if (isset($_POST['adres'])) {
         $output .= " value=\"" . $_POST['adres'] . "\"";
@@ -481,7 +483,7 @@ function getwijziging() {
         <tr>
             <td>Huisnummer: </td>
             <td>
-            <input name="huisnummer" type="text" value="'.$_SESSION["huisnummer"].'"
+            <input name="huisnummer" type="text" value="' . $_SESSION["huisnummer"] . '"
             ';
     if (isset($_POST['huisnummer'])) {
         $output .= " value=\"" . $_POST['huisnummer'] . "\"";
@@ -498,7 +500,7 @@ function getwijziging() {
         <tr>
             <td>Postcode: </td>
             <td>
-            <input name="postcode" type="text" value="'.$_SESSION["postcode"].'"
+            <input name="postcode" type="text" value="' . $_SESSION["postcode"] . '"
             ';
     if (isset($_POST['postcode'])) {
         $output .= " value=\"" . $_POST['postcode'] . "\"";
@@ -515,7 +517,7 @@ function getwijziging() {
         <tr>
             <td>Telefoon: </td>
             <td>
-            <input name="telefoon" type="text" value="'.$_SESSION["telefoon"].'"
+            <input name="telefoon" type="text" value="' . $_SESSION["telefoon"] . '"
             ';
     if (isset($_POST['telefoon'])) {
         $output .= " value=\"" . $_POST['telefoon'] . "\"";
@@ -533,13 +535,15 @@ function getwijziging() {
         </tr>
         <tr>
             <td colspan="2">
-            <input type="hidden" name="id" value="'.$_SESSION['id'].'">
+            <input type="hidden" name="id" value="' . $_SESSION['id'] . '">
             <input type="submit" name="submitwijzig" class="button" value="wijzig">
             </td>
         </tr>
     </table>
 </form>';
-    if(isset($_POST['submitwijzig'])){
+    if (isset($_POST['submitwijzig'])) {
+
+        
         $id = $_POST['id'];
         $wacht = $_POST['password'];
         $email = $_POST['email'];
@@ -548,22 +552,68 @@ function getwijziging() {
         $postcode = $_POST['postcode'];
         $telefoon = $_POST['telefoon'];
 
-        $query = mysql_query('SELECT * FROM `accounts` WHERE `account` ="' . $_SESSION["username"] . '" OR `email` ="' . $email . '"');
+        $query = mysql_query('SELECT * FROM `accounts` WHERE `email` ="' . $email . '"');
         $nummer_rows = mysql_num_rows($query);
-        
+
         if (!empty($nummer_rows)) {
             $output = getwijzigingbestaat();
             $check = 1;
         }
         if (empty($check)) {
+            echo"hoi";
             $q = "UPDATE accounts
-                  SET password = '".$wacht."', email = '".$email."', adres = '".$adres."', huisnummer = '".$huisnummer."', postcode = '".$postcode."', telefoon = '".$telefoon."'
-                  WHERE id = '".$id."'
+                  SET password = '" . $wacht . "', email = '" . $email . "', adres = '" . $adres . "', huisnummer = '" . $huisnummer . "', postcode = '" . $postcode . "', telefoon = '" . $telefoon . "'
+                  WHERE id = '" . $id . "'
                   
                   ";
             mysql_query($q);
+            $output = '
+            <table id="tableLogin">
+                <form method="post" action="?menuoptie=inloggen&loginoptie=account">
+                    <tr>
+                        <td>
+                        wijziging succesvol!
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gebruikersnaam: </td>
+                        <td> ' . $_SESSION['username'] . '</td>
+                    </tr>
+                    <tr>
+                        <td>Wachtwoord: </td>
+                        <td>****</td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td>' . $_SESSION['email'] . '</td>
+                    </tr>
+                    <tr>
+                        <td>Adres: </td>
+                        <td>' . $_SESSION['adres'] . '</td>
+                    </tr>
+                    <tr>
+                        <td>Huisnummer: </td>
+                        <td>' . $_SESSION['huisnummer'] . '</td>
+                    </tr>
+                    <tr>
+                        <td>Postcode: </td>
+                        <td>' . $_SESSION['postcode'] . '</td>
+                    </tr>
+                    <tr>
+                        <td>Telefoon: </td>
+                        <td>' . $_SESSION['telefoon'] . '</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                        <input type="submit" class="button" name=submitwijziging value="Wijzig gegevens">
+                        </td>
+                    </tr>
+                </form>
+            </table>
+            ';
+        }
     }
-    }
+
     return $output;
 }
 
@@ -578,13 +628,13 @@ function getwijzigingbestaat() {
         <tr>
             <td>Gebruikersnaam: </td>
             <td>
-                '.$_SESSION["username"].'
+                ' . $_SESSION["username"] . '
             </td>
         </tr>
         <tr>
             <td>Wachwoord: </td>
             <td>
-            <input name="password" type="password" value="'.$_SESSION["wachtwoord"].'"
+            <input name="password" type="password" value="' . $_SESSION["wachtwoord"] . '"
             ';
     if (isset($_POST['password'])) {
         $output .= " value=\"" . $_POST['password'] . "\"";
@@ -618,7 +668,7 @@ function getwijzigingbestaat() {
         <tr>
             <td>Emailadres: </td>
             <td>
-            <input name="email" type="text" value="'.$_SESSION["email"].'"
+            <input name="email" type="text" value="' . $_SESSION["email"] . '"
             ';
     if (isset($_POST['email'])) {
         $output .= " value=\"" . $_POST['email'] . "\"";
@@ -634,7 +684,7 @@ function getwijzigingbestaat() {
         <tr>
             <td>Adres: </td>
             <td>
-            <input name="adres" type="text" value="'.$_SESSION["adres"].'"
+            <input name="adres" type="text" value="' . $_SESSION["adres"] . '"
             ';
     if (isset($_POST['adres'])) {
         $output .= " value=\"" . $_POST['adres'] . "\"";
@@ -651,7 +701,7 @@ function getwijzigingbestaat() {
         <tr>
             <td>Huisnummer: </td>
             <td>
-            <input name="huisnummer" type="text" value="'.$_SESSION["huisnummer"].'"
+            <input name="huisnummer" type="text" value="' . $_SESSION["huisnummer"] . '"
             ';
     if (isset($_POST['huisnummer'])) {
         $output .= " value=\"" . $_POST['huisnummer'] . "\"";
@@ -668,7 +718,7 @@ function getwijzigingbestaat() {
         <tr>
             <td>Postcode: </td>
             <td>
-            <input name="postcode" type="text" value="'.$_SESSION["postcode"].'"
+            <input name="postcode" type="text" value="' . $_SESSION["postcode"] . '"
             ';
     if (isset($_POST['postcode'])) {
         $output .= " value=\"" . $_POST['postcode'] . "\"";
@@ -685,7 +735,7 @@ function getwijzigingbestaat() {
         <tr>
             <td>Telefoon: </td>
             <td>
-            <input name="telefoon" type="text" value="'.$_SESSION["telefoon"].'"
+            <input name="telefoon" type="text" value="' . $_SESSION["telefoon"] . '"
             ';
     if (isset($_POST['telefoon'])) {
         $output .= " value=\"" . $_POST['telefoon'] . "\"";
