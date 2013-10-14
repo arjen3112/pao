@@ -59,7 +59,6 @@ AND `password`  ="' . mysql_real_escape_string($_POST['pass']) . '"';
             $_SESSION['id'] = $row['id'];
             $_SESSION['profiel'] = $row['profiel'];
             $_SESSION['username'] = $row['account'];
-            $_SESSION["wachtwoord"] = $row['password'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['adres'] = $row['adres'];
             $_SESSION['huisnummer'] = $row['huisnummer'];
@@ -76,8 +75,8 @@ AND `password`  ="' . mysql_real_escape_string($_POST['pass']) . '"';
         }
     } elseif ($_SESSION['profiel'] >= "1") {
         if (isset($_GET['loginoptie']) && $_GET['loginoptie'] == "account") {
-            if (isset($_POST['submitwijziging']) || isset($_POST['submitwijzig'])) {
-                $output = getwijziging();
+            if (isset($_POST['submitwijzigingadres']) || isset($_POST['submitwijzigadres'])) {
+                $output = getwijzigingadres();
             }else
             {
                 $output = getaccountgegevens();

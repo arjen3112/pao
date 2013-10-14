@@ -366,10 +366,6 @@ function getaccountgegevens() {
             <td> ' . $_SESSION['username'] . '</td>
         </tr>
         <tr>
-            <td>Wachtwoord: </td>
-            <td>****</td>
-        </tr>
-        <tr>
             <td>Email: </td>
             <td>' . $_SESSION['email'] . '</td>
         </tr>
@@ -390,8 +386,11 @@ function getaccountgegevens() {
             <td>' . $_SESSION['telefoon'] . '</td>
         </tr>
         <tr>
-            <td colspan="2">
-            <input type="submit" class="button" name=submitwijziging value="Wijzig gegevens">
+            <td>
+            <input type="submit" class="button" name="submitwijzigingadres" value="Wijzig gegevens" style="width:175px;">
+            </td>
+            <td>
+            <input type="submit" class="button" name="submitwijzigingwachtwoord" value="Wijzig wachtwoord" style="width:175px;">
             </td>
         </tr>
     </form>
@@ -400,7 +399,7 @@ function getaccountgegevens() {
     return $output;
 }
 
-function getwijziging() {
+function getwijzigingadres() {
     $check = 0;
     $output = '';
     $output = '
@@ -411,40 +410,6 @@ function getwijziging() {
             <td>Gebruikersnaam: </td>
             <td>
                 ' . $_SESSION["username"] . '
-            </td>
-        </tr>
-        <tr>
-            <td>Wachwoord: </td>
-            <td>
-            <input name="password" type="password" value="' . $_SESSION["wachtwoord"] . '"
-            ';
-    if (isset($_POST['password'])) {
-        $output .= " value=\"" . $_POST['password'] . "\"";
-        $password = $_POST['password'];
-        $pattern = '/^.*[a-zA-Z][0-9]$/';
-        if (!preg_match($pattern, $password)) {
-            $output .= "style=\"border:2px solid red;\" ";
-            $check = 1;
-        }
-    }
-    $output .= '/>
-            </td>
-        </tr>
-        <tr>
-            <td>Wachwoord herhalen: </td>
-            <td>
-            <input name="password2" type="password" value=""
-            ';
-    if (isset($_POST['password2'])) {
-        $output .= " value=\"" . $_POST['password2'] . "\"";
-        $password2 = $_POST['password2'];
-        $pattern = $_POST['password'];
-        if ($pattern !== $password2) {
-            $output .= "style=\"border:2px solid red;\" ";
-            $check = 1;
-        }
-    }
-    $output .= '/>
             </td>
         </tr>
         <tr>
@@ -536,16 +501,15 @@ function getwijziging() {
         <tr>
             <td colspan="2">
             <input type="hidden" name="id" value="' . $_SESSION['id'] . '">
-            <input type="submit" name="submitwijzig" class="button" value="wijzig">
+            <input type="submit" name="submitwijzigadres" class="button" value="Wijzig gegevens">
             </td>
         </tr>
     </table>
 </form>';
-    if (isset($_POST['submitwijzig'])) {
+    if (isset($_POST['submitwijzigadres'])) {
 
         
         $id = $_POST['id'];
-        $wacht = $_POST['password'];
         $email = $_POST['email'];
         $adres = $_POST['adres'];
         $huisnummer = $_POST['huisnummer'];
@@ -555,23 +519,28 @@ function getwijziging() {
         $query = mysql_query('SELECT * FROM `accounts` WHERE `email` ="' . $email . '"');
         $nummer_rows = mysql_num_rows($query);
 
-        if (!empty($nummer_rows)) {
+        if (!empty($nummer_rows) && $email != $_SESSION['email']) {
             $output = getwijzigingbestaat();
             $check = 1;
         }
         if (empty($check)) {
-            echo"hoi";
+            //echo"test empty check";
             $q = "UPDATE accounts
-                  SET password = '" . $wacht . "', email = '" . $email . "', adres = '" . $adres . "', huisnummer = '" . $huisnummer . "', postcode = '" . $postcode . "', telefoon = '" . $telefoon . "'
+                  SET email = '" . $email . "', adres = '" . $adres . "', huisnummer = '" . $huisnummer . "', postcode = '" . $postcode . "', telefoon = '" . $telefoon . "'
                   WHERE id = '" . $id . "'
                   
                   ";
             mysql_query($q);
+            $_SESSION['email'] = $email;
+            $_SESSION['adres'] = $adres;
+            $_SESSION['huisnummer'] = $huisnummer;
+            $_SESSION['postcode'] = $postcode;
+            $_SESSION['telefoon'] = $telefoon;
             $output = '
             <table id="tableLogin">
                 <form method="post" action="?menuoptie=inloggen&loginoptie=account">
                     <tr>
-                        <td>
+                        <td style="color:green;">
                         wijziging succesvol!
                         </td>
                     </tr>
@@ -603,11 +572,6 @@ function getwijziging() {
                         <td>Telefoon: </td>
                         <td>' . $_SESSION['telefoon'] . '</td>
                     </tr>
-                    <tr>
-                        <td colspan="2">
-                        <input type="submit" class="button" name=submitwijziging value="Wijzig gegevens">
-                        </td>
-                    </tr>
                 </form>
             </table>
             ';
@@ -623,46 +587,12 @@ function getwijzigingbestaat() {
 <form method="post" action="?menuoptie=inloggen&loginoptie=account">
     <table id="tableLogin">
         <tr>
-            <td colspan="2" class="fout">Gebruikersnaam en/of email bestaat al</td>
+            <td colspan="2" class="fout">Email bestaat al</td>
         </tr>
         <tr>
             <td>Gebruikersnaam: </td>
             <td>
                 ' . $_SESSION["username"] . '
-            </td>
-        </tr>
-        <tr>
-            <td>Wachwoord: </td>
-            <td>
-            <input name="password" type="password" value="' . $_SESSION["wachtwoord"] . '"
-            ';
-    if (isset($_POST['password'])) {
-        $output .= " value=\"" . $_POST['password'] . "\"";
-        $password = $_POST['password'];
-        $pattern = '/^.*[a-zA-Z][0-9]$/';
-        if (!preg_match($pattern, $password)) {
-            $output .= "style=\"border:2px solid red;\" ";
-            $check = 1;
-        }
-    }
-    $output .= '/>
-            </td>
-        </tr>
-        <tr>
-            <td>Wachwoord herhalen: </td>
-            <td>
-            <input name="password2" type="password" value=""
-            ';
-    if (isset($_POST['password2'])) {
-        $output .= " value=\"" . $_POST['password2'] . "\"";
-        $password2 = $_POST['password2'];
-        $pattern = $_POST['password'];
-        if ($pattern !== $password2) {
-            $output .= "style=\"border:2px solid red;\" ";
-            $check = 1;
-        }
-    }
-    $output .= '/>
             </td>
         </tr>
         <tr>
@@ -753,9 +683,11 @@ function getwijzigingbestaat() {
         </tr>
         <tr>
             <td colspan="2">
-            <input type="submit" name="submitwijzig" class="button" value="registreer">
+            <input type="hidden" name="id" value="' . $_SESSION['id'] . '">
+            <input type="submit" name="submitwijzigadres" class="button" value="Wijzig gegevens">
             </td>
         </tr>
     </table>
 </form>';
+return $output;
 }
