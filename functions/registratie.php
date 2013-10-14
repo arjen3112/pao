@@ -727,7 +727,7 @@ function wijzigwachtwoord()
 	if (isset($_POST['checkwachtwoord']))
 	{
 		$output = '
-		<table id="tableCheckWachtwoord">
+		<table id="tableLogin">
 			<form method="post" action="?menuoptie=inloggen&loginoptie=account">
 				<tr>
 					<td>U bent ingelogd</td>
