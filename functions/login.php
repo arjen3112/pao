@@ -77,7 +77,12 @@ AND `password`  ="' . mysql_real_escape_string($_POST['pass']) . '"';
         if (isset($_GET['loginoptie']) && $_GET['loginoptie'] == "account") {
             if (isset($_POST['submitwijzigingadres']) || isset($_POST['submitwijzigadres'])) {
                 $output = getwijzigingadres();
-            }else
+            }
+            elseif(isset($_POST['submitwijzigingwachtwoord']) || isset($_POST['checkwachtwoord']))
+			{
+				$output = wijzigwachtwoord();
+			}
+			else
             {
                 $output = getaccountgegevens();
             }

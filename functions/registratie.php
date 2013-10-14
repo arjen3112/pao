@@ -691,3 +691,32 @@ function getwijzigingbestaat() {
 </form>';
 return $output;
 }
+
+function wijzigwachtwoord()
+{
+	  $output = '
+<table id="tableLogin">
+	<form method="post" action="?menuoptie=inloggen&loginoptie=account">
+		<tr>
+			<td>Gebruikersnaam: </td>
+			<td>
+			'.$_SESSION["username"].'
+			<input type="hidden" name="user" value="'.$_SESSION["username"].'">
+			</td>
+		</tr>
+		<tr>
+			<td>Wachtwoord: </td>
+			<td>
+			<input type="password" name="pass" placeholder="Typ hier je wachtwoord">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<input type="submit" value="Login" name="checkwachtwoord" class="button">
+			</td>
+		</tr>
+	</form>
+</table>
+';
+    return $output;
+}
