@@ -366,6 +366,10 @@ function getaccountgegevens() {
             <td> ' . $_SESSION['username'] . '</td>
         </tr>
         <tr>
+            <td>Wachtwoord: </td>
+            <td>****</td>
+        </tr>
+        <tr>
             <td>Email: </td>
             <td>' . $_SESSION['email'] . '</td>
         </tr>
