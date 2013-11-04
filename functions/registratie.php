@@ -711,6 +711,8 @@ function wijzigwachtwoord() {
             if ($nummer_rows >= 1) {
                 $output = wachtwoordwijzigen();
                 
+            }else{
+            	$output = wachtwoordwijzigenfout();
             }
         }
     } else {
@@ -810,4 +812,36 @@ function wachtwoordwijzigen(){
      
     
     return $output;
+}
+
+function wachtwoordwijzigenfout()
+{
+	   $output = '
+    <table id="tableLogin">
+        <form method="post" action="?menuoptie=inloggen&loginoptie=account">
+        	<tr>
+        		<td colspan="2" class="fout">Wachtwoord onjuist!</td>
+        	</tr>
+            <tr>
+                <td>Gebruikersnaam: </td>
+                <td>
+                ' . $_SESSION["username"] . '
+                <input type="hidden" name="username" value="' . $_SESSION["username"] . '">
+                </td>
+            </tr>
+            <tr>
+                <td>Wachtwoord: </td>
+                <td>
+                <input type="password" name="password" placeholder="Typ hier je wachtwoord">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <input type="submit" value="Login" name="checkwachtwoord" class="button">
+                </td>
+            </tr>
+        </form>
+    </table>
+    ';
+	return $output;
 }
