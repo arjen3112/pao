@@ -9,7 +9,7 @@ function GetContent()
     switch($content)
     {
         case 'homepage' :
-            return GetHomepage();
+            return homepage();
             break;
         
         case 'informatie' :
@@ -21,19 +21,12 @@ function GetContent()
             break;
         
         case 'inloggen' :
-            return GetInloggen();
+            return logon();
             break;
             
         default :
             return GetHomepage();
     }
-}
-
-function GetHomepage()
-{
-   $content = "homepage";
-    return $content;
-     
 }
 
 function GetInformatie()
@@ -46,13 +39,6 @@ function GetInformatie()
 function GetWebshop()
 {
     $content = "webshop";
-    return $content;
-    
-}
-
-function GetInloggen()
-{
-    $content = logon();
     return $content;
     
 }

@@ -71,3 +71,44 @@ a
 	margin:auto;
 	margin-top:10%;
 }
+
+#infohomepage
+{
+	position:relative;
+	height:80%;
+	width:50%;
+	margin:4%;
+	border:solid 1px darkblue;
+}
+
+#imghome1
+{
+	position:relative;
+	left:62%;
+	top:-90%;
+	height:30%;
+	width:30%;
+	border:solid 1px darkgreen;
+}
+
+#imghome2
+{
+	position:relative;
+	left:62%;
+	top:-70%;
+	height:30%;
+	width:30%;
+	border:solid 1px darkgreen;
+}
+
+#imghome1 img
+{
+	height:100%;
+	width:100%;
+}
+
+#imghome2 img
+{
+	height:100%;
+	width:100%;
+}
