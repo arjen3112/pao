@@ -722,7 +722,6 @@ function wijzigwachtwoord()
 		</form>
 	</table>
 	';
-	    return $output;
 	
 	if (isset($_POST['checkwachtwoord']))
 	{
@@ -735,4 +734,5 @@ function wijzigwachtwoord()
 			</form>
 		</table>';
 	}
+	return $output;
 }
