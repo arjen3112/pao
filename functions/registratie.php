@@ -512,7 +512,6 @@ function getwijzigingadres() {
 </form>';
     if (isset($_POST['submitwijzigadres'])) {
 
-        
         $id = $_POST['id'];
         $email = $_POST['email'];
         $adres = $_POST['adres'];
@@ -693,46 +692,122 @@ function getwijzigingbestaat() {
         </tr>
     </table>
 </form>';
-return $output;
+    return $output;
 }
 
-function wijzigwachtwoord()
-{
-	  $output = '
-	<table id="tableLogin">
-		<form method="post" action="?menuoptie=inloggen&loginoptie=account">
-			<tr>
-				<td>Gebruikersnaam: </td>
-				<td>
-				'.$_SESSION["username"].'
-				<input type="hidden" name="user" value="'.$_SESSION["username"].'">
-				</td>
-			</tr>
-			<tr>
-				<td>Wachtwoord: </td>
-				<td>
-				<input type="password" name="pass" placeholder="Typ hier je wachtwoord">
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-				<input type="submit" value="Login" name="checkwachtwoord" class="button">
-				</td>
-			</tr>
-		</form>
-	</table>
-	';
-	
-	if (isset($_POST['checkwachtwoord']))
-	{
-		$output = '
-		<table id="tableLogin">
-			<form method="post" action="?menuoptie=inloggen&loginoptie=account">
-				<tr>
-					<td>U bent ingelogd</td>
-				</tr>
-			</form>
-		</table>';
-	}
-	return $output;
+function wijzigwachtwoord() {
+    $output = "";
+    //echo"test";
+    
+    if (isset($_POST['checkwachtwoord'])) {
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            $query = 'SELECT * FROM `accounts`
+            WHERE `account` ="' . $_SESSION["username"] . '"
+            AND `password`  ="' . mysql_real_escape_string($_POST['password']) . '"';
+            //echo"test 123";
+            $resultaat = mysql_query($query);
+            $nummer_rows = mysql_num_rows($resultaat);
+            $row = mysql_fetch_array($resultaat);
+            if ($nummer_rows >= 1) {
+                $output = wachtwoordwijzigen();
+                
+            }
+        }
+    } else {
+        $output = '
+    <table id="tableLogin">
+        <form method="post" action="?menuoptie=inloggen&loginoptie=account">
+            <tr>
+                <td>Gebruikersnaam: </td>
+                <td>
+                ' . $_SESSION["username"] . '
+                <input type="hidden" name="username" value="' . $_SESSION["username"] . '">
+                </td>
+            </tr>
+            <tr>
+                <td>Wachtwoord: </td>
+                <td>
+                <input type="password" name="password" placeholder="Typ hier je wachtwoord">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <input type="submit" value="Login" name="checkwachtwoord" class="button">
+                </td>
+            </tr>
+        </form>
+    </table>
+    ';
+    }
+    if(isset($_POST['submitwachtwoordwijzigen'])){
+                    $output = wachtwoordwijzigen();
+                }
+    return $output;
+}
+
+function wachtwoordwijzigen(){
+    //echo 'test';
+    $output="";
+    $check=null;
+     
+         $output = '
+         <table id="tableLogin">
+        <form method="post" action="?menuoptie=inloggen&loginoptie=account">
+            <tr>
+                <td>Gebruikersnaam: </td>
+                <td>
+                ' . $_SESSION["username"] . '
+                <input type="hidden" name="username" value="' . $_SESSION["username"] . '">
+                </td>
+            </tr>
+            <tr>
+            <td>Wachwoord: </td>
+            <td>
+            <input name="wijzigenpassword" type="password" placeholder="Typ hier je wachtwoord"
+            ';
+            if (isset($_POST['wijzigenpassword'])) {
+            $output .= " value=\"" . $_POST['wijzigenpassword'] . "\"";
+            $password = $_POST['wijzigenpassword'];
+            $pattern = '/^.*[a-zA-Z][0-9]$/';
+            if (!preg_match($pattern, $password)) {
+                $output .= "style=\"border:2px solid red;\" ";
+                $check = 1;
+            }
+        }
+        $output .= '/>
+            </td>
+        </tr>
+        <tr>
+            <td>Wachwoord herhalen: </td>
+            <td>
+            <input name="wijzigenpassword2" type="password" placeholder="Typ hier je wachtwoord"
+            ';
+    if (isset($_POST['wijzigenpassword2'])) {
+        $output .= " value=\"" . $_POST['wijzigenpassword2'] . "\"";
+        $password2 = $_POST['wijzigenpassword2'];
+        $pattern = $_POST['wijzigenpassword'];
+        if ($pattern !== $password2) {
+            $output .= "style=\"border:2px solid red;\" ";
+            $check = 1;
+        }
+    }
+    $output .= '/>
+            </td>
+        </tr>
+            <tr>
+                <td colspan="2">
+                <input type="submit" value="Login" name="submitwachtwoordwijzigen" class="button">
+                </td>
+            </tr>';
+            if (isset($_POST['submitwachtwoordwijzigen'])&& empty($check)){
+            $q='UPDATE `accounts` SET password="'.$_POST['wijzigenpassword'].'" WHERE account="' . $_SESSION["username"] . '"';
+            mysql_query($q);
+            $output.='<tr><td colspan="2" class="goed">Wachtwoord gewijzigd!</td></tr>';
+     } 
+     $output.='   </form>
+    </table>
+         ';
+     
+    
+    return $output;
 }

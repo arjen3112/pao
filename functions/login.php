@@ -78,7 +78,7 @@ AND `password`  ="' . mysql_real_escape_string($_POST['pass']) . '"';
             if (isset($_POST['submitwijzigingadres']) || isset($_POST['submitwijzigadres'])) {
                 $output = getwijzigingadres();
             }
-            elseif(isset($_POST['submitwijzigingwachtwoord']) || isset($_POST['checkwachtwoord']))
+            elseif(isset($_POST['submitwijzigingwachtwoord']) || isset($_POST['checkwachtwoord'])|| isset($_POST['submitwachtwoordwijzigen']))
 			{
 				$output = wijzigwachtwoord();
 			}
