@@ -25,7 +25,7 @@ function GetContent()
             break;
             
         default :
-            return GetHomepage();
+            return homepage();
     }
 }
 
