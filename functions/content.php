@@ -36,9 +36,3 @@ function GetInformatie()
     
 }
 
-function GetWebshop()
-{
-    $content = "webshop";
-    return $content;
-    
-}
