@@ -8,17 +8,21 @@ function homepage(){
 	$resultaat = mysql_query($query);
 	$row = mysql_fetch_array($resultaat);
 	
-	$q = 'SELECT * FROM `content`
+	$q = 'SELECT `content` FROM `content`
 		WHERE `pagina` = "homepage"
-		AND `type` = "image"';
+		AND `type` = "image"
+		AND `id`= "2" OR `id` = "3"';
 		
 	$r = mysql_query($q);
-	$rw = mysql_fetch_array($r);
-	
+		
 	$output='
 	<div id="infohomepage">'.$row["content"].'</div>
-	<div id="imghome1"><img src="'.$r.'"></div>
-	<div id="imghome2"><img src="'.$r.'"></div>';
+	';
+	$i=1;
+	while ($rw = mysql_fetch_array($r)) {
+		$output.='<div id="imghome'.$i.'"><img src="'.$rw["content"].'"></div>';
+		$i++;
+	}
 	
 	return $output;
 }
