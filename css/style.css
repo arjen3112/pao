@@ -78,7 +78,7 @@ a
 	height:80%;
 	width:50%;
 	margin:4%;
-	border:solid 1px darkblue;
+	overflow:hidden;
 }
 
 #imghome1
