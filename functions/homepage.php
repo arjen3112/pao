@@ -24,10 +24,20 @@ function homepage() {
 		$i++;
 
 		if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
-			$output .= '<input type="submit" class="buttonHomepage" value="Upload afbeelding"></form>';
+			$output .= '<input type="submit" class="buttonHomepage" value="Upload afbeelding" name="upload"></form>';
 		}
+	}
+	if (isset($_POST['upload'])) {
+		$output = upload();
 	}
 
 	return $output;
 }
 
+function upload() {
+	if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
+		echo "Ngrs";
+	}else{
+		echo"U moet ingelogd zijn om deze site te kunnen bezoeken";
+	}
+}
