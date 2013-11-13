@@ -47,6 +47,8 @@
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 0px 0px #7cacde;
+	position:relative;
+	left:62%;
 }
 
 .button

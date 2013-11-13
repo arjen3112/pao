@@ -20,12 +20,14 @@ function homepage() {
 		';
 	$i = 1;
 	while ($rw = mysql_fetch_array($r)) {
-		$output .= '<div id="imghome' . $i . '"><img src="' . $rw["content"] . '"></div>';
+		$output .= '<form method="post" action="?menuoptie=homepage" id="formHomepage"><div id="imghome' . $i . '"><img src="' . $rw["content"] . '"></div>';
 		$i++;
+
+		if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
+			$output .= '<input type="submit" class="buttonHomepage" value="Upload afbeelding"></form>';
+		}
 	}
 
-	if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
-		$output.='<form method="post" action="?"><input type="submit" class="buttonHomepage" value="Upload afbeelding"></form>';
-	}
 	return $output;
 }
+

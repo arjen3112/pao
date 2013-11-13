@@ -81,7 +81,7 @@ a
 	overflow:hidden;
 }
 
-#imghome1
+#imghome1, #imghome2
 {
 	position:relative;
 	left:62%;
@@ -91,24 +91,14 @@ a
 	border:solid 1px darkgreen;
 }
 
-#imghome2
+#imghome1 img, #imghome2 img
+{
+	height:100%;
+	width:100%;
+}
+
+#formHomepage
 {
 	position:relative;
-	left:62%;
-	top:-70%;
-	height:30%;
-	width:30%;
-	border:solid 1px darkgreen;
-}
-
-#imghome1 img
-{
-	height:100%;
-	width:100%;
-}
-
-#imghome2 img
-{
-	height:100%;
-	width:100%;
+	top:-90%;
 }
