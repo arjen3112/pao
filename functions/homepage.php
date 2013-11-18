@@ -36,8 +36,13 @@ function homepage() {
 
 function upload() {
 	if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
-		echo "Ngrs";
-	}else{
-		echo"U moet ingelogd zijn om deze site te kunnen bezoeken";
+		$output = cmsHomepage();
+	} else {
+		$output = '"U beschikt niet over de juiste rechten om deze site te bezoeken"';
 	}
+	return $output;
+}
+
+function cmsHomepage() {
+	echo "hallo";
 }
