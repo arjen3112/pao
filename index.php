@@ -8,6 +8,7 @@ checklogin();
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/menustyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/webshop.css" />
 		<script type="text/javascript" src="js/menu.js"></script>
 	</head>
 	<body>
@@ -25,7 +26,6 @@ checklogin();
 				echo GetContent();
 				?>
 			</div>
-			<div id="footer"></div>
 		</div>
 	</body>
 </html>
