@@ -97,3 +97,22 @@ a
 	position:relative;
 	top:-90%;
 }
+
+#formHomepageVerander
+{
+	width:200px;
+}
+textarea#styled {
+	position:relative;
+	max-width: 612px;
+	max-height: 120px;
+	min-height: 120px;
+	min-width: 612px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-image: url(bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	left: 22%;
+}

@@ -27,7 +27,7 @@ function homepage() {
 			$output .= '<input type="submit" class="buttonHomepage" value="Upload afbeelding" name="upload"></form>';
 		}
 	}
-	if (isset($_POST['upload'])) {
+	if (isset($_POST['upload'])||isset($_POST['uploadtekst'])||isset($_POST['uploadafbeelding1'])||isset($_POST['uploadafbeelding2'])) {
 		$output = upload();
 	}
 
