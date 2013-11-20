@@ -42,7 +42,3 @@ function upload() {
 	}
 	return $output;
 }
-
-function cmsHomepage() {
-	echo "hallo";
-}
