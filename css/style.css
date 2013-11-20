@@ -77,8 +77,10 @@ a
 	position:relative;
 	height:80%;
 	width:40%;
-	margin:4%;
+	margin-top:4%;
+	margin-left:4%;
 	overflow:hidden;
+	border:solid 1px green;
 }
 
 #imghome1, #imghome2
