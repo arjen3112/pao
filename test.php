@@ -11,33 +11,9 @@ checklogin();
 
 	<body>
 		<?php
-        echo test();
+            echo loadwebshopitems();
 		?>
 	</body>
 </html>
-<?php
-function test() {
-    $form = new formbuilder();
-    $output = '
-    <form method="post" action="test.php">
-        <table>
-            <tr>
-                <td>';
-    $output .= $form -> pregmatch("adres", "/^[A-Z]{1}[a-z]{4,500}$/");
-    $output .= '  </td>
-                </tr>
-                <tr>
-                <td>';
-    $output .= $form -> pregmatch("telefoon", "/^[0-9]{4,12}$/");
-    $output .=' </td>
-                </tr>
-                <tr>
-                <td>
-                <input type="submit" name="submit" class="button" value="Wijzig gegevens">
-                </td>
-                </tr>
-                </table>
-                </form>
-    ';
-    return $output;
-}
+
+

@@ -5,4 +5,21 @@
 	width:15%;
 	height:100%;
 	border-right:solid 1px #0433a0;
+	z-index:1;
+}
+#webshopitemcontainer
+{
+	float:right;
+	width:84%;
+}
+.webshopitem
+{
+	position: relative;
+	float:left;
+	width:20%;
+}
+.webshopitem img
+{
+	width:100px;
+	height:100px;
 }
