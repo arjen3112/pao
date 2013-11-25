@@ -37,11 +37,15 @@ function cmsHomepage() {
 	}
 
 	if (isset($_POST['uploadafbeelding1'])) {
-		$output = veranderAfbeelding1();
+		if (!$_FILES['afbeelding1']['name'] == "") {
+			$output = veranderAfbeelding1();
+		}
 	}
 
 	if (isset($_POST['uploadafbeelding2'])) {
-		$output = veranderAfbeelding2();
+		if (!$_FILES['afbeelding2']['name'] == "") {
+			$output = veranderAfbeelding2();
+		}
 	}
 
 	if (isset($_POST['terugHomepage'])) {
@@ -59,57 +63,47 @@ function tekstVeranderHomepage() {
 }
 
 function veranderAfbeelding1() {
-	if (!$_FILES['afbeelding1']['name'] == "") {
 
-		$files = glob('images/homepage/afbeelding1/*');
-		foreach ($files as $file) {
-			if (is_file($file))
-				unlink($file);
-		}
+	$files = glob('images/homepage/afbeelding1/*');
+	foreach ($files as $file) {
+		if (is_file($file))
+			unlink($file);
+	}
 
-		$photo = $_FILES['afbeelding1'];
-		if (isset($_POST['uploadafbeelding1'])) {
-			if (!is_uploaded_file($photo['name'])) {
-				move_uploaded_file($photo['tmp_name'], "images/homepage/afbeelding1/" . $photo['name']);
+	$photo = $_FILES['afbeelding1'];
+	if (isset($_POST['uploadafbeelding1'])) {
+		if (!is_uploaded_file($photo['name'])) {
+			move_uploaded_file($photo['tmp_name'], "images/homepage/afbeelding1/" . $photo['name']);
 
-				$query = 'UPDATE  `content`
+			$query = 'UPDATE  `content`
 		SET content="images/homepage/afbeelding1/' . $photo['name'] . '" WHERE id="2"';
-				$resultaat = mysql_query($query);
+			$resultaat = mysql_query($query);
 
-			} else {
-				echo 'Failed';
-			}
+		} else {
+			echo 'Failed';
 		}
-	} else {
-		$output = "Afbeelding is leeg";
-		return $output;
 	}
 }
 
 function veranderAfbeelding2() {
-	if (!$_FILES['afbeelding2']['name'] == "") {
 
-		$files = glob('images/homepage/afbeelding2/*');
-		foreach ($files as $file) {
-			if (is_file($file))
-				unlink($file);
-		}
+	$files = glob('images/homepage/afbeelding2/*');
+	foreach ($files as $file) {
+		if (is_file($file))
+			unlink($file);
+	}
 
-		$photo = $_FILES['afbeelding2'];
-		if (isset($_POST['uploadafbeelding2'])) {
-			if (!is_uploaded_file($photo['name'])) {
-				move_uploaded_file($photo['tmp_name'], "images/homepage/afbeelding2/" . $photo['name']);
+	$photo = $_FILES['afbeelding2'];
+	if (isset($_POST['uploadafbeelding2'])) {
+		if (!is_uploaded_file($photo['name'])) {
+			move_uploaded_file($photo['tmp_name'], "images/homepage/afbeelding2/" . $photo['name']);
 
-				$query = 'UPDATE  `content`
+			$query = 'UPDATE  `content`
 		SET content="images/homepage/afbeelding2/' . $photo['name'] . '" WHERE id="3"';
-				$resultaat = mysql_query($query);
+			$resultaat = mysql_query($query);
 
-			} else {
-				echo 'Failed';
-			}
+		} else {
+			echo 'Failed';
 		}
-	} else {
-		$output = "Afbeelding is leeg";
-		return $output;
 	}
 }
