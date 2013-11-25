@@ -9,15 +9,15 @@ function cmsHomepage() {
 				</td></tr>
 				
 				<tr><td>
-					<form method="post" action="">
-						<img src="images/homepage/brood.jpg">
+					<form method="post" action="" enctype="multipart/form-data">
+						<input type="file" value="Upload afbeelding" name="afbeelding1">
 						<input type="submit" class="btnVeranderHomepage" value="Upload afbeelding" name="uploadafbeelding1">
 					</form>
 				</td>
 				
 				<td>
-					<form method="post" action="">
-						<img src="images/homepage/brood.jpg">
+					<form method="post" action="" enctype="multipart/form-data">
+						<input type="file" value="Upload afbeelding" name="afbeelding2">
 						<input type="submit" class="btnVeranderHomepage" value="Upload afbeelding" name="uploadafbeelding2">
 					</form>
 				</td></tr>
@@ -34,6 +34,15 @@ function cmsHomepage() {
 			$output = tekstVeranderHomepage();
 		}
 	}
+
+	if (isset($_POST['uploadafbeelding1'])) {
+		$output = veranderAfbeelding1();
+	}
+
+	if (isset($_POST['uploadafbeelding2'])) {
+		$output = veranderAfbeelding2();
+	}
+
 	if (isset($_POST['terugHomepage'])) {
 		unset($_POST['upload']);
 	}
@@ -46,5 +55,52 @@ function tekstVeranderHomepage() {
 	$query = 'UPDATE  `content`
 		SET content="' . $valueTextarea . '" WHERE pagina="homepage" AND type="text"';
 	$resultaat = mysql_query($query);
-	unset($_POST['upload']);
+}
+
+function veranderAfbeelding1() {
+
+	$files = glob('images/homepage/afbeelding1/*');
+	foreach ($files as $file) {
+		if (is_file($file))
+			unlink($file);
+	}
+
+	$photo = $_FILES['afbeelding1'];
+	if (isset($_POST['uploadafbeelding1'])) {
+		var_dump($photo);
+		if (!is_uploaded_file($photo['name'])) {
+			move_uploaded_file($photo['tmp_name'], "images/homepage/afbeelding1/" . $photo['name']);
+
+			$query = 'UPDATE  `content`
+		SET content="images/homepage/afbeelding1/' . $photo['name'] . '" WHERE id="2"';
+			$resultaat = mysql_query($query);
+
+		} else {
+			echo 'Failed';
+		}
+	}
+}
+
+function veranderAfbeelding2() {
+
+	$files = glob('images/homepage/afbeelding2/*');
+	foreach ($files as $file) {
+		if (is_file($file))
+			unlink($file);
+	}
+
+	$photo = $_FILES['afbeelding2'];
+	if (isset($_POST['uploadafbeelding2'])) {
+		var_dump($photo);
+		if (!is_uploaded_file($photo['name'])) {
+			move_uploaded_file($photo['tmp_name'], "images/homepage/afbeelding2/" . $photo['name']);
+
+			$query = 'UPDATE  `content`
+		SET content="images/homepage/afbeelding2/' . $photo['name'] . '" WHERE id="3"';
+			$resultaat = mysql_query($query);
+
+		} else {
+			echo 'Failed';
+		}
+	}
 }

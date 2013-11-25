@@ -37,8 +37,10 @@ function homepage() {
 function upload() {
 	if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
 		$output = cmsHomepage();
-	} else {
+	} elseif(isset($_SESSION["profiel"]) && $_SESSION["profiel"] > "1") {
 		$output = '"U beschikt niet over de juiste rechten om deze site te bezoeken"';
+	}else{
+		$output = '"U moet ingelogd om deze site te bezoeken"';
 	}
 	return $output;
 }
