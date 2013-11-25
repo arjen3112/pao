@@ -2,7 +2,7 @@
 function cmsHomepage() {
 	$output = '<table>
 				<tr><td>
-					<form method="post" action="">
+					<form method="post" action="?menuoptie=homepage">
 						<textarea name="textarea" id="styled"></textarea>
 						<input type="submit" class="btnVeranderHomepage" value="Upload tekst" name="uploadtekst">
 					</form>
@@ -13,14 +13,14 @@ function cmsHomepage() {
 						<img src="images/homepage/brood.jpg">
 						<input type="submit" class="btnVeranderHomepage" value="Upload afbeelding" name="uploadafbeelding1">
 					</form>
-				</td></tr>
+				</td>
 				
 				<td>
 					<form method="post" action="">
 						<img src="images/homepage/brood.jpg">
 						<input type="submit" class="btnVeranderHomepage" value="Upload afbeelding" name="uploadafbeelding2">
 					</form>
-				</td>
+				</td></tr>
 				
 				<tr><td>
 					<form method="post" action="">
@@ -30,13 +30,10 @@ function cmsHomepage() {
 				</table>';
 
 	if (isset($_POST['uploadtekst'])) {
-		echo "uploadtekst isset";
 		if (!empty($_POST['textarea'])) {
-			echo "textarea isset";
 			$output = tekstVeranderHomepage();
 		}
 	}
-
 	if (isset($_POST['terugHomepage'])) {
 		unset($_POST['upload']);
 	}
@@ -44,5 +41,10 @@ function cmsHomepage() {
 }
 
 function tekstVeranderHomepage() {
-	echo "adsasdsa";
+	$valueTextarea = $_POST['textarea'];
+
+	$query = 'UPDATE  `content`
+		SET content="' . $valueTextarea . '" WHERE pagina="homepage" AND type="text"';
+	$resultaat = mysql_query($query);
+	unset($_POST['upload']);
 }
