@@ -13,7 +13,7 @@ function GetContent()
             break;
         
         case 'informatie' :
-            return GetInformatie();
+            return informatie();
             break;
             
         case 'webshop' :
@@ -28,11 +28,3 @@ function GetContent()
             return homepage();
     }
 }
-
-function GetInformatie()
-{
-    $content = "informatie";
-    return $content;
-    
-}
-
