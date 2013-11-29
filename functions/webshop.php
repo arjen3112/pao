@@ -29,8 +29,12 @@ function loadwebshopitems(){
                         <form method="post" action="">
                         <table>
                         <input type="hidden" value="'.$row["id"].'"
-                        <tr><td colspan="2"><img src="'.$row["plaatje"].'"></td></tr>
-                        <tr><td>'.$row["naam"].'</td><td>&#128 '.$row["waarde"].'</td></tr>
+                        <tr><td colspan="2"><img src="'.$row["plaatje"].'"></td>';
+                        if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
+                            $output .='<td><input type="submit" name="wijzigitem" value="wijzig item" style="width:100%;"></td>';
+                        }
+                        $output.='</tr>
+                        <tr><td>'.$row["naam"].'</td><td>&#128 '.$row["waarde"].'</td><td style="width:100%;"><input type="submit" name="bestellen" value="bestel" style="width:100%;"></td></tr>
                         </table>
                         </form>
                     </div>
