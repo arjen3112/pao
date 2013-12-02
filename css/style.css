@@ -144,3 +144,9 @@ textarea#styled
 	max-height:100%;
 	overflow: auto;
 }
+
+#informatielinks
+{
+	min-width:120px;
+	min-height:150px;	
+}
