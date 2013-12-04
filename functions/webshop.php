@@ -6,7 +6,7 @@ function GetWebshop(){
     }else{
         $output.="kies een menu item";
     }
-    if(isset($_POST['wijzigitem'])){
+    if(isset($_POST['wijzigitem'])||isset($_POST['wijziggegevens'])){
         $output = webshopwijzigen();
     }
     if(isset($_POST['bestellen'])||isset($_POST['afrekenen'])){
