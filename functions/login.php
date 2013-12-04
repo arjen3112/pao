@@ -66,7 +66,6 @@ AND `password`  ="' . mysql_real_escape_string($_POST['pass']) . '"';
             $_SESSION['telefoon'] = $row['telefoon'];
         }
     }
-
     if (!isset($_SESSION['profiel'])) {
         if (isset($_POST['registreren']) || isset($_POST['submitregistreren'])) {
             $output = getregistratie();
