@@ -10,13 +10,20 @@
 	border:solid 1px #0433a0;
 }
 
+#menuUL
+{
+	position:relative;
+	top:-10%;
+}
+
 #menuhomepage
 {
 	border-radius:15px 0px 0px 15px;
 }
 
-#menuinloggen
+#menuinloggen, #menuinloggen li
 {
+	height:63px;
 	border-radius:0px 15px 15px 0px;
 }
 
@@ -161,7 +168,7 @@
 	border:none;
 	background-color:#FFFFFF;
 	font-size: 16px;
-	width:100%;
+	width:90%;
 	height:100%;
 	font-size:25;
 	font-family:Times;

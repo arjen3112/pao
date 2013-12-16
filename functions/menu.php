@@ -8,10 +8,10 @@ function menu(){
                        <a href="?menuoptie=informatie"><div id="menuinformatie" class="">Informatie</div></a>
                        <a href="?menuoptie=webshop"><div id="menuwebshop" class="">Webshop</div></a>';
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
-                            $menu.='<ul>
+                             $menu.='<ul id="menuUL">
                             			<li id="menuinloggen">
-                            				<div>Account</div>
-      	                      				<ul>
+                            				Account
+                            			 	<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
                             					<form method="post" action="?menuoptie=inloggen">
@@ -30,10 +30,10 @@ function menu(){
                        <a href="?menuoptie=informatie"><div id="menuinformatie" class="menuGeselecteerd">Informatie</div></a>
                        <a href="?menuoptie=webshop"><div id="menuwebshop" class="">Webshop</div></a>';
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
-                            $menu.='<ul>
+                             $menu.='<ul id="menuUL">
                             			<li id="menuinloggen">
-                            				<div>Account</div>
-      	                      				<ul>
+                            				Account
+                            			 	<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
                             					<form method="post" action="?menuoptie=inloggen">
@@ -52,10 +52,10 @@ function menu(){
                        <a href="?menuoptie=informatie"><div id="menuinformatie" class="">Informatie</div></a>
                        <a href="?menuoptie=webshop"><div id="menuwebshop" class="menuGeselecteerd">Webshop</div></a>';
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
-                            $menu.='<ul>
+                             $menu.='<ul id="menuUL">
                             			<li id="menuinloggen">
-                            				<div>Account</div>
-      	                      				<ul>
+                            				Account
+                            			 	<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
                             					<form method="post" action="?menuoptie=inloggen">
@@ -74,10 +74,10 @@ function menu(){
                        <a href="?menuoptie=informatie"><div id="menuinformatie" class="">Informatie</div></a>
                        <a href="?menuoptie=webshop"><div id="menuwebshop" class="">Webshop</div></a>';
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
-                            $menu.='<ul>
+                           $menu.='<ul id="menuUL">
                             			<li id="menuinloggen">
-                            				<div>Account</div>
-      	                      				<ul>
+                            				Account
+                            			 	<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
                             					<form method="post" action="?menuoptie=inloggen">
@@ -96,10 +96,10 @@ function menu(){
                        <a href="?menuoptie=informatie"><div id="menuinformatie" class="">Informatie</div></a>
                        <a href="?menuoptie=webshop"><div id="menuwebshop" class="">Webshop</div></a>';
                        if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
-                            $menu.='<ul>
+                             $menu.='<ul id="menuUL">
                             			<li id="menuinloggen">
-                            				<div>Account</div>
-      	                      				<ul>
+                            				Account
+                            			 	<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
                             					<form method="post" action="?menuoptie=inloggen">
@@ -119,10 +119,10 @@ function menu(){
                        <a href="?menuoptie=informatie"><div id="menuinformatie" class="">Informatie</div></a>
                        <a href="?menuoptie=webshop"><div id="menuwebshop" class="">Webshop</div></a>';
                       if(isset($_SESSION["profiel"]) && $_SESSION["profiel"]>="1"){
-                            $menu.='<ul>
+                           $menu.='<ul id="menuUL">
                             			<li id="menuinloggen">
-                            				<div>Account</div>
-      	                      				<ul>
+                            				Account
+                            			 	<ul>
                             					<a href="?menuoptie=inloggen&loginoptie=bestellingen"><li id="menuBestelling">Bestellingen</li></a>
                             					<a href="?menuoptie=inloggen&loginoptie=account"><li>Accountgegevens</li></a>
                             					<form method="post" action="?menuoptie=inloggen">
