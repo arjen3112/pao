@@ -4,6 +4,7 @@ bootstrap('functions');
 connectdb();
 checklogin();
 ?>
+
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />

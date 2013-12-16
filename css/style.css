@@ -1,111 +1,96 @@
-#container
-{
-	position:absolute;
-	width:70%;
-	height:90%;
-	top:5%;
-	left:15%;
-	min-width:993px;
-	min-height:500px;
+#container {
+	position: absolute;
+	width: 70%;
+	height: 90%;
+	top: 5%;
+	left: 15%;
+	min-width: 993px;
+	min-height: 500px;
 }
 
-body
-{
-	background-color:#FFFFFF;
-	font-family:Times;
+body {
+	background-color: #FFFFFF;
+	font-family: Times;
 }
 
-#header
-{
-	position:relative;
-	height:16%;
-	border:solid 1px #0433a0;
+#header {
+	position: relative;
+	height: 16%;
+	border: solid 1px #0433a0;
 }
 
-#logo
-{
-	width:80%;
-	height:100%;
+#logo {
+	width: 80%;
+	height: 100%;
 }
 
-#quote
-{
-	position:relative;
-	float:right;
-	height:100%;
-	width:11%;
+#quote {
+	position: relative;
+	float: right;
+	height: 100%;
+	width: 11%;
 }
 
-#menu
-{
-	position:relative;
-	height:10%;
-	margin-bottom:2%;
-	font-size:25;
+#menu {
+	position: relative;
+	height: 10%;
+	margin-bottom: 2%;
+	font-size: 25;
 }
 
-#content
-{
-	position:relative;
-	height:70%;
-	border:solid 1px #0433a0;
+#content {
+	position: relative;
+	height: 70%;
+	border: solid 1px #0433a0;
 }
 
-a
-{
-	text-decoration:none;
-	color:black;
+a {
+	text-decoration: none;
+	color: black;
 }
 
-#tableLogin
-{
-	font-size:25px;
-	position:relative;
-	margin:auto;
-	margin-top:10%;
+#tableLogin {
+	font-size: 25px;
+	position: relative;
+	margin: auto;
+	margin-top: 10%;
 }
 
-#infohomepage
-{
-	position:relative;
-	height:80%;
-	width:40%;
-	margin-top:4%;
-	margin-left:4%;
-	overflow:hidden;
-	border:solid 1px green;
+#infohomepage {
+	position: relative;
+	height: 80%;
+	width: 40%;
+	margin-top: 4%;
+	margin-left: 4%;
+	overflow: hidden;
+	border: solid 1px green;
 }
 
-#imghome1, #imghome2
-{
-	position:relative;
-	left:62%;
-	top:-90%;
-	height:30%;
-	width:30%;
-	border:solid 1px darkgreen;
+#imghome1, #imghome2 {
+	position: relative;
+	left: 62%;
+	top: -90%;
+	height: 30%;
+	width: 30%;
+	border: solid 1px darkgreen;
 }
 
-#imghome1 img, #imghome2 img
-{
-	height:100%;
-	width:100%;
+#imghome1 img, #imghome2 img {
+	height: 100%;
+	width: 100%;
 }
 
-#formHomepage
-{
-	position:relative;
-	top:-90%;
+#formHomepage {
+	position: relative;
+	top: -90%;
 }
 
-#formHomepageVerander
-{
-	width:200px;
+#formHomepageVerander {
+	width: 200px;
 }
 
-textarea#styled
-{
-	position:relative;
+textarea#styled {
+	position: relative;
 	max-width: 612px;
 	max-height: 120px;
 	min-height: 120px;
@@ -118,35 +103,45 @@ textarea#styled
 	background-repeat: no-repeat;
 }
 
-#imginformatie img
-{
-	height:100%;
-	width:100%;
+#imginformatie img {
+	height: 100%;
+	width: 100%;
 }
 
-#tableInfo
-{
-	margin-left:3%;
-	margin-right:3%;
-	margin-top:4%;
+#tableInfo {
+	margin-left: 3%;
+	margin-right: 3%;
+	margin-top: 4%;
 }
 
-#tableInfo td
-{
-	text-align:left;
-	vertical-align:top;
-	border:solid 1px green;
+#tableInfo td {
+	text-align: left;
+	vertical-align: top;
+	border: solid 1px green;
 }
 
-#infoInformatie
-{
-	max-width:100%;
-	max-height:100%;
+#infoInformatie {
+	max-width: 100%;
+	max-height: 100%;
 	overflow: auto;
 }
 
-#informatielinks
-{
-	min-width:120px;
-	min-height:150px;	
+#informatielinks {
+	min-width: 120px;
+	min-height: 150px;
 }
+
+#tablebestellingen {
+	border-collapse: collapse;
+	
+}
+#tablebestellingen td {
+	border: solid 1px black;
+}
+#bestellingencontainer{
+	margin-right:auto;
+	margin-left:auto;
+	width:70%;
+	overflow:auto;
+}
+

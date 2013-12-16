@@ -76,16 +76,12 @@ AND `password`  ="' . mysql_real_escape_string($_POST['pass']) . '"';
         if (isset($_GET['loginoptie']) && $_GET['loginoptie'] == "account") {
             if (isset($_POST['submitwijzigingadres']) || isset($_POST['submitwijzigadres'])) {
                 $output = getwijzigingadres();
-            }
-            elseif(isset($_POST['submitwijzigingwachtwoord']) || isset($_POST['checkwachtwoord'])|| isset($_POST['submitwachtwoordwijzigen']))
-			{
-				$output = wijzigwachtwoord();
-			}
-			else
-            {
+            } elseif (isset($_POST['submitwijzigingwachtwoord']) || isset($_POST['checkwachtwoord']) || isset($_POST['submitwachtwoordwijzigen'])) {
+                $output = wijzigwachtwoord();
+            } else {
                 $output = getaccountgegevens();
             }
-            
+
         } elseif (isset($_GET['loginoptie']) && $_GET['loginoptie'] == "bestellingen") {
             $output = getbestellingen();
         } else {
@@ -144,9 +140,14 @@ function getlogoff() {
 
 }
 
-
-
 function getbestellingen() {
-    $output = "Bestellingsscherm binnenkort beschikbaar";
+    $query = 'SELECT * FROM `bestellingen` WHERE `account`="' . $_SESSION['username'] . '"';
+    $resultaat = mysql_query($query);
+    $output = '<div id="bestellingencontainer"><table id="tablebestellingen"><tr><td>Product</td><td>Prijs</td><td>Status</td></tr>';
+    while ($row = mysql_fetch_array($resultaat)) {
+        $output.='<tr><td>'.$row['itemnaam'].'</td><td> &#128 '.$row['waarde'].'</td><td>'.$row['status'].'</td></tr>';
+    }
+    $output.='<table></div>';
+
     return $output;
 }
