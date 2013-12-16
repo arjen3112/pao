@@ -57,7 +57,7 @@ function loadwebshopitems() {
 }
 
 function bestellen() {
-    if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
+    if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] >= "1") {
         if (isset($_POST['afrekenen'])) {
             $account = $_SESSION['username'];
             $itemid = $_POST['id'];
