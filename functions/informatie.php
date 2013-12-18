@@ -32,7 +32,7 @@ function informatie() {
 	  		  		<table id="tableInfo">
 		  		  		<tr>
 			  		  		<td><div id="imginformatie"><img src="' . $rw["content"] . '"></div></td>
-			  		  		<td rowspan="2">' . $ro["content"] . '</td>
+			  		  		<td rowspan="2" id="informatierechts">' . $ro["content"] . '</td>
 		  		  		</tr>
 		  		  		<tr>
 		  		  			<td><div id="informatielinks">' . $row["content"] . '</div></td>

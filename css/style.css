@@ -57,7 +57,7 @@ a {
 }
 
 #infohomepage {
-	z-index:5;
+	z-index: 5;
 	position: relative;
 	height: 80%;
 	width: 40%;
@@ -71,7 +71,7 @@ a {
 	position: relative;
 	left: 62%;
 	top: 20px;
-	height:200px;
+	height: 200px;
 	width: 30%;
 	border: solid 1px darkgreen;
 }
@@ -103,6 +103,12 @@ textarea#styled {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 }
+#imginformatie {
+	min-height: 200px;
+	max-height: 200px;
+	min-width: 250px;
+	max-width: 250px;
+}
 
 #imginformatie img {
 	height: 100%;
@@ -122,8 +128,8 @@ textarea#styled {
 }
 
 #infoInformatie {
-	position:absolute;
-	max-width: 100%;
+	position: absolute;
+	width: 100%;
 	max-height: 100%;
 	overflow: auto;
 }
@@ -131,19 +137,29 @@ textarea#styled {
 #informatielinks {
 	min-width: 120px;
 	min-height: 150px;
+	max-width: 120px;
+	max-height: 150px;
+}
+
+#informatierechts {
+	min-width: 800px;
+	min-height: 360px;
+	max-width: 800px;
+	max-height: 360px;
 }
 
 #tablebestellingen {
 	border-collapse: collapse;
-	
 }
+
 #tablebestellingen td {
 	border: solid 1px black;
 }
-#bestellingencontainer{
-	margin-right:auto;
-	margin-left:auto;
-	width:70%;
-	overflow:auto;
+
+#bestellingencontainer {
+	margin-right: auto;
+	margin-left: auto;
+	width: 70%;
+	overflow: auto;
 }
 
