@@ -19,8 +19,7 @@ function webshopwijzigen() {
                         <form method="post" action="" enctype="multipart/form-data">
                         <table>
                         <input type="hidden" name="id" value="' . $row["id"] . '">';
-                        if(isset($wijzig)){
-                            echo'test';
+                        if($wijzig){
                             $output .= "<tr><td>Gegevens succesvol gewijzigd!</td></tr>";
                         }
             $output .= '<tr><td><img src="' . $row["plaatje"] . '"></td>
