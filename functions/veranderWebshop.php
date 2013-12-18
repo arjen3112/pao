@@ -1,24 +1,29 @@
 <?php
 function webshopwijzigen() {
+    $wijzig = false;
     if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
         if (isset($_POST['wijziggegevens'])) {
             if (!$_FILES['afbeelding']['name'] == "")
-                wijzigafbeelding();
+                $wijzig=wijzigafbeelding();
             if (!empty($_POST['naamproduct']) && !empty($_POST['prijsproduct']))
-                wijziggegevenswebshop();
+                $wijzig=wijziggegevenswebshop();
         }
         if (isset($_POST['verwijderproduct']))
             verwijderproduct();
         $q = 'SELECT * FROM `itemswebshop` WHERE `menuitem` = "' . $_GET['webshop'] . '" AND `id` = "' . $_POST["id"] . '"';
         $resultaat = mysql_query($q);
         $output = '<div id="webshopbestelcontainer">';
+        
         while ($row = mysql_fetch_array($resultaat)) {
             $output .= '<div class="webshopitem">
                         <form method="post" action="" enctype="multipart/form-data">
                         <table>
-                        <input type="hidden" name="id" value="' . $row["id"] . '">
-                        
-                        <tr><td><img src="' . $row["plaatje"] . '"></td>
+                        <input type="hidden" name="id" value="' . $row["id"] . '">';
+                        if(isset($wijzig)){
+                            echo'test';
+                            $output .= "<tr><td>Gegevens succesvol gewijzigd!</td></tr>";
+                        }
+            $output .= '<tr><td><img src="' . $row["plaatje"] . '"></td>
 						<td><input type="file" value="Upload afbeelding" name="afbeelding"></td>
                         <td><input type="submit" class="btnVeranderHomepage" name="wijziggegevens" value="Wijzig gegevens"></td></tr>
                         
@@ -55,7 +60,7 @@ function wijzigafbeelding() {
             $query = 'UPDATE  `itemswebshop`
 				SET plaatje="images/webshop/' . $photo['name'] . '" WHERE id="' . $_POST['id'] . '"';
             mysql_query($query);
-
+            return true;
         } else {
             echo 'Failed';
         }
@@ -68,9 +73,7 @@ function verwijderproduct() {
 }
 
 function wijziggegevenswebshop() {
-    echo 'test';
-    $q = 'UPDATE  `itemswebshop`
-          SET (`naam`,`waarde`)
-          VALUES("' . $_POST['naamproduct'] . '","' . $_POST['prijsproduct'] . '") WHERE id="' . $_POST['id'] . '"';
+    $q = 'UPDATE  `itemswebshop` SET naam="' . $_POST['naamproduct'] . '", waarde="' . $_POST['prijsproduct'] . '" WHERE id="' . $_POST['id'] . '"';
     mysql_query($q);
+    return true;
 }
