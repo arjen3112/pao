@@ -57,6 +57,7 @@ a {
 }
 
 #infohomepage {
+	z-index:5;
 	position: relative;
 	height: 80%;
 	width: 40%;

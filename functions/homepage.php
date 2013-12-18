@@ -25,7 +25,7 @@ function homepage() {
 	}
 	
 	if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
-			$output .= '<input type="submit" class="buttonHomepage" value="Upload afbeelding" name="upload"></form>';
+			$output .= '<input type="submit" class="buttonHomepage" value="Wijzig gegevens" name="upload"></form>';
 		}
 	
 	if (isset($_POST['upload'])||isset($_POST['uploadtekst'])||isset($_POST['uploadafbeelding1'])||isset($_POST['uploadafbeelding2'])) {
