@@ -62,15 +62,15 @@ a {
 	width: 40%;
 	margin-top: 4%;
 	margin-left: 4%;
-	overflow: hidden;
+	overflow: auto;
 	border: solid 1px green;
 }
 
 #imghome1, #imghome2 {
 	position: relative;
 	left: 62%;
-	top: -90%;
-	height: 30%;
+	top: 20px;
+	height:200px;
 	width: 30%;
 	border: solid 1px darkgreen;
 }
@@ -121,6 +121,7 @@ textarea#styled {
 }
 
 #infoInformatie {
+	position:absolute;
 	max-width: 100%;
 	max-height: 100%;
 	overflow: auto;
