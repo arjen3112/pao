@@ -141,13 +141,29 @@ function getlogoff() {
 }
 
 function getbestellingen() {
+    if(isset($_POST['annuleren'])){
+        bestellingAnnuleren();
+    }
     $query = 'SELECT * FROM `bestellingen` WHERE `account`="' . $_SESSION['username'] . '"';
     $resultaat = mysql_query($query);
-    $output = '<div id="bestellingencontainer"><table id="tablebestellingen"><tr><td>Product</td><td>Prijs</td><td>Status</td></tr>';
+    $output = '<div id="bestellingencontainer"><table id="tablebestellingen"><tr><td>Product</td><td>Prijs</td><td>Status</td><td>Annuleren?</td></tr>';
     while ($row = mysql_fetch_array($resultaat)) {
-        $output.='<tr><td>'.$row['itemnaam'].'</td><td> &#128 '.$row['waarde'].'</td><td>'.$row['status'].'</td></tr>';
+        $output.='<tr>
+                    <form method="post" action="">
+                    <input type="hidden" name="id" value="'.$row['id'].'">
+                    <td>'.$row['itemnaam'].'</td>
+                    <td> &#128 '.$row['waarde'].'</td>
+                    <td>'.$row['status'].'</td>
+                    <td><input type="submit"name="annuleren" value="Annuleer"></td>
+                    </form>
+                    </tr>';
     }
     $output.='<table></div>';
 
     return $output;
+}
+
+function bestellingAnnuleren(){
+    $q='UPDATE `bestellingen` SET `status`="Geannuleerd" WHERE `id`="'.$_POST['id'].'"';
+    mysql_query($q);
 }
