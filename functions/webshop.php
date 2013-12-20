@@ -38,19 +38,20 @@ function loadwebshopitems() {
                         <form method="post" action="">
                         <table>
                         <input type="hidden" name="id" value="' . $row["id"] . '"
-                        <tr><td colspan="2"><img src="' . $row["plaatje"] . '"></td>';
+                        <tr><td><img src="' . $row["plaatje"] . '"></td>';
         if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
-            $output .= '<td><input type="submit" name="wijzigitem" value="wijzig item" style="width:100%;"></td>';
+            $output .= '<td><input type="submit" class="btnWebshop" name="wijzigitem" value="wijzig item" style="width:100%;"></td>';
         }
         $output .= '</tr>
-                        <tr><td>' . $row["naam"] . '</td><td>&#128 ' . $row["waarde"] . '</td><td style="width:100%;"><input type="submit" name="bestellen" value="bestel" style="width:100%;"></td></tr>
+                        <tr><td>' . $row["naam"] . '</td></tr>
+                        <tr><td>&#128 ' . $row["waarde"] . '</td><td style="width:100%;"><input type="submit" class="btnWebshop" name="bestellen" value="bestel" style="width:100%;"></td></tr>
                         </table>
                         </form>
                     </div>
         ';
     }
     if (isset($_SESSION["profiel"]) && $_SESSION["profiel"] == "1") {
-        $output .= '<table><form method="post" action=""><tr><td><input type="submit" name="itemtoevoegen" value="item toevoegen" style="width:100%;"></td></tr></form></table>';
+        $output .= '<table><form method="post" action=""><tr><td><input class="btnWebshop" type="submit" name="itemtoevoegen" value="item toevoegen" style="width:100%;"></td></tr></form></table>';
     }
     $output .= '</div>';
     return $output;
